@@ -228,7 +228,7 @@ div{
 }
 .search{
 	background: #353537;
-	display: block;
+	display: none;
 	overflow: hidden;
 }
 .search-h{
@@ -239,6 +239,10 @@ div{
 .search-result{
 	margin: 0 auto;
 	width: 80%;
+	text-align: center;
+}
+.search-result .btn{
+	margin-bottom: 10%;
 }
 .result{
 	width: 60%;

@@ -1,8 +1,15 @@
 let signin = document.getElementById('on');
 let signup = document.getElementById('off'); 
 let caution = document.getElementById('switch');
+let search = document.getElementById('search-bar');
 let x;
-document.getElementsByClassName('close')[0].onclick =() =>{
+document.getElementById('search').onclick = () => {
+	let destination = document.getElementById('search-box').value;
+	if(destination !== ""){
+		search.style.display = "block";
+	}
+}
+document.getElementsByClassName('close')[0].onclick = () =>{
     signin.style.display = "none";
 }
 document.getElementsByClassName('close')[1].onclick =() =>{
@@ -43,9 +50,10 @@ let validation = (word) =>{
 		n = word.match(/[$@#&!]/g)? n+=25 : n+=0;
 		if (n == 25) {
 			document.getElementById('error').innerHTML = "password is poor";
-
+			document.getElementById('pass').value = "";
 		}else if (n == 50) {
 			document.getElementById('error').innerHTML = "password is fair!";
+			document.getElementById('pass').value = "";
 		}else if (n == 75) {
 			document.getElementById('error').innerHTML = "password is good!";
 		}else if (n == 100) {
