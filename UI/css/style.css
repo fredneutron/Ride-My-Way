@@ -226,6 +226,55 @@ div{
 .unbox a{
 	color: #00b22d;
 }
+.search{
+	background: #353537;
+	display: block;
+	overflow: hidden;
+}
+.search-h{
+	text-align: center;
+	font-size: 2em;
+	color: #fff;
+}
+.search-result{
+	margin: 0 auto;
+	width: 80%;
+}
+.result{
+	width: 60%;
+	text-align: center;
+	margin: 5% auto;
+	border-radius: 5px;
+	box-shadow: 0 0 8px rgba(0,0,0,0.4);
+}
+.result-img{
+	border-radius: 35px;
+	width: 90%;
+}
+.result table tr td{
+	text-align: left;
+}
+.result-h{
+	width: 14%;
+}
+.result-content{
+	width: 58%;
+	color: #fff;
+}
+.result-content p,.result-content h3{
+	padding: 0 !important;
+	margin: 0;
+}
+.result-btn{
+	width: 28%;
+}
+.result-btn .btn{
+	padding: 10% 20%;
+}
+.headup{
+	font-style: inherit;
+	font-size: 1.3em;
+}
 .foot-bag{
 	background-color: #fff;
 }

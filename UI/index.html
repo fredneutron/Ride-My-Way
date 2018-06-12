@@ -29,6 +29,56 @@
 		</header>
 	</section>
 	<section class="body">
+		<div class="search">
+			<h2 class="search-h">Search Result</h2>
+			<div class="search-result">
+				<div class="result">
+					<table>
+						<tr>
+							<td class="result-h"><img class="result-img" src="images/mails.png"></td>
+							<td class="result-content">
+								<h3>Babatunde Adelabu</h3>
+								<p>Time: 4:50pm</p>
+								<p>Location - Destination</p>
+							</td>
+							<td class="result-btn">
+								<button class="btn btn-tap">Accept</button>
+							</td>
+						</tr>
+					</table>
+				</div>
+				<div class="result">
+					<table>
+						<tr>
+							<td class="result-h"><img class="result-img" src="images/mails.png"></td>
+							<td class="result-content">
+								<h3>kdkdkanklasndfk</h3>
+								<p>Time: 4:50pm</p>
+								<p>Location - Destination</p>
+							</td>
+							<td class="result-btn">
+								<button class="btn btn-tap">Accept</button>
+							</td>
+						</tr>
+					</table>
+				</div>
+				<div class="result">
+					<table>
+						<tr>
+							<td class="result-h"><img class="result-img" src="images/mails.png"></td>
+							<td class="result-content">
+								<h3>ad gkjfdajlnalnkl</h3>
+								<p>Time: 4:50pm</p>
+								<p>Location - Destination</p>
+							</td>
+							<td class="result-btn">
+								<button class="btn btn-tap">Accept</button>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
 		<div class="body-plate center">
 			<h2 class="body-plate-h">Avaliable Ride Offer</h2>
 			<p>All around the world</p>
@@ -74,6 +124,23 @@
 	    </div>
 	  </div>
 	</div>
+	<div id="switch" class="unbox">
+  		<!-- Unbox content -->
+	  <div class="unbox-content">
+	    <span class="close">&times;</span><br>
+	    <div class="unbox-content-body">
+	    	<h2>RMW</h2>
+	    	<form method="post" class="form">
+	    		<p class="headup">You are</p>
+	    		<p>a</p>
+	    		<br>
+	    		<button class="btn btn-tap">Driver</button>Or
+	    		<hr>
+	    		<button class="btn btn-tap">Passenger</button>
+	    	</form>
+	    </div>
+	  </div>
+	</div>
 	<div id="off" class="unbox">
   		<!-- Unbox content -->
 	  <div class="unbox-content">
@@ -88,8 +155,9 @@
 	    		<input type="radio" name="gender" value="Female" required="">Female
 	    		<input type="date" class="form-element" name="" required="">
 	    		<input type="password" class="form-element" id="pass"  placeholder="Password" required="">
+	    		<p id="error"></p>
 	    		<input type="password" class="form-element" id="confirm"  placeholder="Confirm Password" required="">
-	    		<button class="btn btn-tap">Sign Up</button>
+	    		<button class="btn btn-tap" type="button" id="continue">Sign Up</button>
 	    		<span>By joining I agree to receive emails from Ride My Way.</span>
 	    	</form>
 	    </div>
