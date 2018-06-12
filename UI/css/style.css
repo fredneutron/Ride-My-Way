@@ -9,7 +9,7 @@ a{
 ul{
 	list-style-type: none;
 }
-input[type=text]{
+input[type=text], input[type=password],input[type=date]{
 	padding: 1%;
 	width: 50%;
 	text-align: left;
@@ -87,18 +87,35 @@ div{
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
-.modal-content {
+.unbox-content {
+	border-radius: 5px !important;
+	border-radius: 5px;box-shadow: 0 0 8px rgba(0,0,0,0.4);
     background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
-    padding: 20px;
+    margin: 10% auto; /* 15% from the top and centered */
+    padding: 2%;
     border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
+    width: 40%; /* Could be more or less, depending on screen size */
+}
+.unbox-content-body{
+	width: 100%;
+	margin: 0 auto;
+	text-align: center;
+	padding: 10px 0;
+	font-style: inherit;
+}
+.unbox-content-foot{
+	border-top: 2px solid #dddddd;
+	padding: 3px 0 !important;
+	display: block;
+	text-align: center;
+	width: 100%;
 }
 .close {
     color: #aaa;
     float: right;
-    font-size: 28px;
+    font-size: 20px;
     font-weight: bold;
+    margin: 0;
 }
 
 .close:hover,
@@ -127,9 +144,10 @@ div{
 	text-align: center;
 	left: 15%;
 	right: 15%;
-	z-index: 10;
+	z-index: 1;
 	bottom: 32%;
 	padding-top: 20px;
+	width:70%;
 	padding-bottom: 20px;
 }
 .head-text-h{
@@ -138,6 +156,7 @@ div{
 	color: #fff!important;
 	line-height: 110%;
 	letter-spacing: -.3px;
+
     text-transform: capitalize!important;
 }
 .body{
@@ -178,6 +197,34 @@ div{
 	text-align: center;
 	padding: 6% 0;
 	font-size: 2.1em;
+}
+.form{
+	margin: 0 auto;
+	width: 100%
+	display: block;
+	padding: 10px 0;
+	font-style: inherit;
+}
+.form-element, .form-element:hover, .form-element:active{
+	border: 0px;
+	border-bottom: 1px solid #00b22d !important;
+	display: block;
+	width: 100% !important;
+	padding: 10px 0 !important;
+	text-align: center !important;
+	margin-bottom: 15px; 
+	font-size: 1.3em;
+}
+.form .btn-tap{
+	padding: 15px 0%;
+	width: 100%;
+	margin-bottom: 10px;
+}
+.form input[type=checkbox]{
+	text-align: left !important;
+}
+.unbox a{
+	color: #00b22d;
 }
 .foot-bag{
 	background-color: #fff;

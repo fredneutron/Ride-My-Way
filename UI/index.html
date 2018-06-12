@@ -12,8 +12,8 @@
 		<div class="top bar">
 			<a class="bar-item title" href="#">Ride My Way</a>
 			<div class="bar-right">
-				<button class="bar-item btn btn-non" id="signin">Signin</button>
-				<button class="bar-item btn btn-open" id="signup">SignUp</button>
+				<button class="bar-item btn btn-non" id="signin">Sign In</button>
+				<button class="bar-item btn btn-open" id="signup">Sign Up</button>
 			</div>
 		</div>
 		<!-- Header -->
@@ -53,25 +53,51 @@
 			<p><a href="">Privacy Policy</a> | <a href="">Terms of Service</a> | <a href=""> About </a> <br>© Ride My Way lnc. 2018</p>
 		</div>
 	</section>
+	<!-- Unbox --> 
 	<div id="on" class="unbox">
-  		<!-- Modal content -->
-	  <div class="modal-content">
-	    <span class="close">&times;</span>
-	    <p>Some text in the Modal..</p>
+  		<!-- Unbox content -->
+	  <div class="unbox-content">
+	    <span class="close">&times;</span><br>
+	    <div class="unbox-content-body">
+	    	<h2>RMW</h2>
+	    	<form method="post" class="form">
+	    		<input type="text" class="form-element" name="" placeholder="Email/ Username">
+	    		<input type="password" class="form-element" name=""  placeholder="Password">
+	    		<button class="btn btn-tap">Signin</button>
+	    		<input  type="checkbox" name="">
+	    		<span>Remember Me?</span>
+	    		<a href="">Forgot Password</a>
+	    	</form>
+	    </div>
+	    <div class="unbox-content-foot">
+	    	<p>Not a member yet? <a href=""> Join now</a></p>
+	    </div>
 	  </div>
 	</div>
-	<script type="text/javascript">
-		document.getElementById('close')[0].onclick = function(){
-    		unbox.style.display = "none";
-		}
-		document.getElementById('signin').onclick = function(){
-			unbox.style.display = "block";
-		};
-		window.onclick = e => {
-		    if (e.target == modal) {
-		        unbox.style.display = "none";
-		    }
-		}
-	</script>
+	<div id="off" class="unbox">
+  		<!-- Unbox content -->
+	  <div class="unbox-content">
+	    <span class="close">&times;</span><br>
+	    <div class="unbox-content-body">
+	    	<h2>RMW</h2>
+	    	<form method="post" class="form">
+	    		<input type="text" class="form-element" name="" placeholder="First Name" required="">
+	    		<input type="text" class="form-element" name="" placeholder="Last Name" required="">
+	    		<input type="email" class="form-element" name="" placeholder="Email Address" required="">
+	    		<input type="radio" name="gender" value="Male" required="">Male
+	    		<input type="radio" name="gender" value="Female" required="">Female
+	    		<input type="date" class="form-element" name="" required="">
+	    		<input type="password" class="form-element" id="pass"  placeholder="Password" required="">
+	    		<input type="password" class="form-element" id="confirm"  placeholder="Confirm Password" required="">
+	    		<button class="btn btn-tap">Sign Up</button>
+	    		<span>By joining I agree to receive emails from Ride My Way.</span>
+	    	</form>
+	    </div>
+	    <div class="unbox-content-foot">
+	    	<p>Already a member? <a href="" id="signin"> Sign In</a></p>
+	    </div>
+	  </div>
+	</div>
+	<script type="text/javascript" src="js/RideMyWay.js"></script>
 </body>
 </html>
