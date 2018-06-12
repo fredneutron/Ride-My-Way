@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ride My Way</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+	<section class="head">
+		<div class="top bar">
+			<a class="bar-item title" href="#">Ride My Way</a>
+			<div class="bar-right">
+				<button class="bar-item btn btn-non" id="signin">Signin</button>
+				<button class="bar-item btn btn-open" id="signup">SignUp</button>
+			</div>
+		</div>
+		<!-- Header -->
+		<header class="">
+		  <img class="image" src="images/page1.jpg" alt="Hamburger Catering" width="100%" height="600">
+		  <div class="head-text">
+		    <h1 class="head-text-h">Get There Fast And Cheap</h1>
+		    <form method="post">
+		    	<input type="text" name="" placeholder="Search for available ride offer">
+		    	<button class="btn btn-tap">Search</button>
+		    </form>
+		  </div>
+		</header>
+	</section>
+	<section class="body">
+		<div class="body-plate center">
+			<h2 class="body-plate-h">Avaliable Ride Offer</h2>
+			<p>All around the world</p>
+		</div>
+		<div class="body-dish">
+			<ul>
+				<li>Europe</li>
+				<li>Africa</li>
+				<li>Asia</li>
+				<li>North America</li>
+				<li>South America</li>
+				<li>Australia</li>
+				<li>Antarctica</li>
+			</ul>
+		</div>
+		<header class="body-map">
+			<img src="images/world-map.png" width="100%">
+		</header>
+	</section>
+	<section class="foot">
+		<div class="foot-bag center">
+			<p><a href="">Privacy Policy</a> | <a href="">Terms of Service</a> | <a href=""> About </a> <br>© Ride My Way lnc. 2018</p>
+		</div>
+	</section>
+	<div id="on" class="unbox">
+  		<!-- Modal content -->
+	  <div class="modal-content">
+	    <span class="close">&times;</span>
+	    <p>Some text in the Modal..</p>
+	  </div>
+	</div>
+	<script type="text/javascript">
+		document.getElementById('close')[0].onclick = function(){
+    		unbox.style.display = "none";
+		}
+		document.getElementById('signin').onclick = function(){
+			unbox.style.display = "block";
+		};
+		window.onclick = e => {
+		    if (e.target == modal) {
+		        unbox.style.display = "none";
+		    }
+		}
+	</script>
+</body>
+</html>
