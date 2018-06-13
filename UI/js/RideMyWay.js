@@ -2,7 +2,11 @@ let signin = document.getElementById('on');
 let signup = document.getElementById('off'); 
 let caution = document.getElementById('switch');
 let search = document.getElementById('search-bar');
+let dropdown = document.getElementById('dropdown');
 let x;
+document.getElementById('dropdown-toggle').onclick = () =>{
+	dropdown.style.display = "block";
+}
 document.getElementById('search').onclick = () => {
 	let destination = document.getElementById('search-box').value;
 	if(destination !== ""){
@@ -39,6 +43,8 @@ window.onclick = e => {
 		signup.style.display = "none";
 	}else if(e.target == caution){
 		caution.style.display = "none";
+	}else if(e.target == dropdown){
+		dropdown.style.display = "none";
 	}
 }
 let validation = (word) =>{

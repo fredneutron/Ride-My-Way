@@ -9,6 +9,9 @@ a{
 ul{
 	list-style-type: none;
 }
+hr{
+	background: #555;
+}
 input[type=text], input[type=password],input[type=date]{
 	padding: 1%;
 	width: 50%;
@@ -19,6 +22,40 @@ input[type=text], input[type=password],input[type=date]{
 }
 div{
 	display: block;
+}
+body{
+	background: #d5d4d2;
+}
+.ds{
+	color: #555 !important;
+}
+.dropdown{
+	background: #fff;
+	right: 42px;
+	top: 70%;
+	display: none;
+	z-index: 10;
+	position: absolute;
+	/*visibility: hidden;*/
+	opacity: 100;
+	transition: all .2s linear;
+	border-radius: 0 0 3px 3px;
+    -webkit-transition: all .2s linear;
+	border: 1px #ddd solid;
+    box-shadow: 0 0 5px 1px rgba(0,0,0,.05);
+}
+.dropdown>ul{
+	min-width: 100px;
+	padding: 0 15px;
+}
+.dropdown>ul li{
+	white-space: nowrap;
+    padding: 2px 0;
+    text-align: left;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    position: relative;
+    color: #555;
 }
 .center{
 	left: 15%;
@@ -48,7 +85,7 @@ div{
 	background: linear-gradient(#35c350,#03b525);
 	padding: 1.1% 1.7%;
 	margin: 0;
-	color: #fff !important;
+	color: #fff;
 }
 .top{
 	position: fixed;
@@ -63,7 +100,6 @@ div{
 }
 .bar{
 	width: 100%;
-	overflow: hidden;
 	display: block;
 	color: #000!important;
 	padding: 30px 0% !important;
@@ -136,7 +172,7 @@ div{
 	float: left;
 	width: auto;
 	padding: 8px 16px;
-	color: #fff!important;
+	color: #fff ;
 }
 .head-text{
 	display: block;
@@ -278,6 +314,190 @@ div{
 .headup{
 	font-style: inherit;
 	font-size: 1.3em;
+}
+.search-u{
+	width: 70% !important;
+	size: 20px !important;
+	font-size: 1.1em;
+	font-style: inherit;
+	border: 1px solid #999;
+	border-radius: 3px  0 0 3px;
+}
+.search-u-btn{
+	font-size: 1.1em;
+	width: 25%;
+	padding: 3.9px 0;
+	margin-left: -5px;
+	margin-top: -2px;
+	border-radius: 0 3px 3px 0;
+
+}
+.ds img{
+	width: 30px;
+	border-radius: 35px;
+	margin-top: 0;
+	padding: 0; 
+}
+.white{
+	background: #fff !important;
+	height: 30px !important;
+}
+.dashboard{
+	margin-top: 120px;
+}
+.dashboard-h{
+	font-size: 1.6em;
+}
+.dashboard-content{
+	margin: 0;
+	width: 100%;
+}
+.horizon-box{
+	display: block;
+	background: #fff;
+	float: left;
+	height: 60px;
+	width: 62%;
+	margin: 0;
+	padding: 20px 10px 0 10px;
+}
+.horizon-box-h{
+	width: 100%;
+}
+.vertic-box{
+	float: right;
+	display: block;
+	background: #fff;
+	width: 30%;
+}
+.topic{
+	width: auto;
+	float: left;
+	display: block;
+	margin-left: 20px;
+	color: #555;
+}
+.attached{
+	width: auto;
+	float: right;
+	display: block;
+	margin: 2% 2% 0 0;
+	color: #fff !important;
+	border-radius: 35px;
+}
+.gig-profile{
+	width: 100%;
+	text-align: center;
+}
+.gig-profile-img, .gig-profile-p{
+	text-align: center;
+}
+.gig-profile-img{
+	margin-top: 70px;
+}
+.gig-profile-img>img{
+	width: 20%;
+	border-radius: 60px;
+	text-align: center;
+}
+.gig-profile-p>p{
+	color: #222;
+	font-weight: 400;
+	font-size: 1.1em;
+}
+.gig{
+	padding: 5px 10px;
+	width: 90%;
+	display: block;
+}
+.ride{
+	width: 90%;
+	display: block;
+	padding: 20px;
+}
+.ride>p{
+	float: left;
+	width: auto;
+	color: #555;
+	margin-top: 0;
+	cursor: pointer;
+}
+.horizon-box-content{
+	width: 100%;
+	margin-top: 100px;
+}
+.ride-offer{
+	width: 100%;
+}
+.offer{
+	width: 98.6%;
+	background: #fff;
+	padding: 5px 10px;
+	margin: 0;
+	height: 80px;
+	border-bottom: 2px solid #00b22d;
+}
+.offer-details{
+	width: 60%;
+	float: left;
+	margin: 0;
+	padding: 10px 0;
+	color: #555;
+}
+.offer-details p,.offer-details h3{
+	padding: 0 0 5px 0;
+	margin: 0;
+}
+.offer-response{
+	float: right;
+	margin: 30px 50px 0 0;
+	padding: 0;
+	display: block;
+}
+.offer-response>button{
+	padding: 7px 12px;
+	border: 1px solid #555;
+	border-radius: 35px;
+	background: #fff;
+	color: #555;
+}
+.offer-pass{
+	width: 100%;
+	margin-top: 10px;
+}
+.pass-success{
+	border-left: 4px solid #00b22d; 
+}
+.pass-pending{
+	border-left: 4px solid #c04d00;
+}
+.pass{
+	width: 99.5%;
+	background: #fff;
+	padding: 4px 4px;
+}
+.pass-name{
+	float: left;
+	width: 70%;
+}
+.pass-response{
+	margin-top: 10px;
+}
+.badge{
+	float: right;
+	border-radius: 35px;
+}
+.red{
+	background: #a80026 !important;
+}
+.yellow{
+	background: #c04d00 !important;
+}
+.blue{
+	background: #15569f !important;
+}
+.gray{
+	background: #888 !important;
 }
 .foot-bag{
 	background-color: #fff;
