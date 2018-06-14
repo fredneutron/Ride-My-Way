@@ -142,6 +142,10 @@ body{
 	padding: 10px 0;
 	font-style: inherit;
 }
+.unbox-content-body>p{
+	text-align: left;
+	color: #555;
+}
 .unbox-content-foot{
 	border-top: 2px solid #dddddd;
 	padding: 3px 0 !important;
@@ -203,6 +207,7 @@ body{
 	background: #d5d4d2;
 	width: 100%;
 	padding-bottom: 30px;
+	height: auto;
 }
 .body-plate{
 	width: 100%;
@@ -244,7 +249,7 @@ body{
 	padding: 10px 0;
 	font-style: inherit;
 }
-.form-element, .form-element:hover, .form-element:active{
+.form-element, .form-element:hover, .form-element:active,.form-new{
 	border: 0px;
 	border-bottom: 1px solid #00b22d !important;
 	display: block;
@@ -269,6 +274,9 @@ body{
 	background: #353537;
 	display: none;
 	overflow: hidden;
+}
+.search-bar{
+	display: none;
 }
 .search-h{
 	text-align: center;
@@ -346,26 +354,27 @@ body{
 	height: 30px !important;
 }
 .dashboard{
-	margin-top: 120px;
+	margin-top: 90px;
+	width: 100%;
 }
 .dashboard-h{
 	font-size: 1.6em;
 }
 .dashboard-content{
-	margin: 0;
+	margin-top: 0;
 	width: 100%;
 }
 .horizon-box{
 	display: block;
-	background: #fff;
 	float: left;
-	height: 60px;
 	width: 62%;
-	margin: 0;
-	padding: 20px 10px 0 10px;
 }
 .horizon-box-h{
 	width: 100%;
+	height: 60px;
+	background: #fff;
+	padding: 20px 10px 0 10px;
+	margin: 0;
 }
 .vertic-box{
 	float: right;
@@ -427,9 +436,10 @@ body{
 }
 .horizon-box-content{
 	width: 100%;
-	margin-top: 100px;
+	margin-top: 20px;
+	margin-left: 10px; 
 }
-.ride-offer{
+.ride-offer,.ride-offer{
 	width: 100%;
 }
 #ride-offer-accept,#ride-offer-pending{
@@ -479,6 +489,7 @@ body{
 .offer-pass{
 	width: 100%;
 	margin-top: 10px;
+	display: none;
 }
 .pass-success{
 	border-left: 4px solid #00b22d; 
@@ -519,6 +530,22 @@ body{
 }
 .gray{
 	background: #888 !important;
+}
+.name{
+	color: #00b22d !important;
+}
+.add-new{
+	text-align: left !important;
+}
+.form-new{
+	text-align: left !important;
+	font-size: 12px !important;
+}
+.foot{
+	display: block;
+	float: left;
+	margin-top: 20px;
+	width: 100%;
 }
 .foot-bag{
 	background-color: #fff;
