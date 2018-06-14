@@ -57,12 +57,15 @@ body{
     position: relative;
     color: #555;
 }
+#dropdown-toggle,.dropdown-item,.notify{
+	cursor: pointer;
+}
 .center{
 	left: 15%;
 	right: 15%;
 	text-align: center;
 }
-.btn{
+.btn,.btn:visited{
 	background: none;
 	padding: 10px;
 	text-align: center;
@@ -429,11 +432,14 @@ body{
 .ride-offer{
 	width: 100%;
 }
+#ride-offer-accept,#ride-offer-pending{
+	display: none;
+}
 .offer{
 	width: 98.6%;
 	background: #fff;
 	padding: 5px 10px;
-	margin: 0;
+	margin: 5px 0;
 	height: 80px;
 	border-bottom: 2px solid #00b22d;
 }
@@ -461,6 +467,15 @@ body{
 	background: #fff;
 	color: #555;
 }
+.response{
+	padding: 7px 20px !important;
+	border-radius: 0 !important;
+	color: #fff !important;
+	background: #00b22d !important;
+	box-sizing: border-box;
+	background: linear-gradient(#35c350,#03b525);
+	border: #00b22d !important;
+}
 .offer-pass{
 	width: 100%;
 	margin-top: 10px;
@@ -474,7 +489,7 @@ body{
 .pass{
 	width: 99.5%;
 	background: #fff;
-	padding: 4px 4px;
+	padding: 8px 4px;
 }
 .pass-name{
 	float: left;
@@ -483,6 +498,12 @@ body{
 .pass-response{
 	margin-top: 10px;
 }
+.s-badge{
+	border-radius: 35px;
+	padding: 2px;
+	font-size: 0.8em;
+}
+
 .badge{
 	float: right;
 	border-radius: 35px;
@@ -501,4 +522,5 @@ body{
 }
 .foot-bag{
 	background-color: #fff;
+	padding: 20px 0;
 }

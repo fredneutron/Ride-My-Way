@@ -1,36 +1,55 @@
-let signin = document.getElementById('on');
-let signup = document.getElementById('off'); 
-let caution = document.getElementById('switch');
-let search = document.getElementById('search-bar');
-let dropdown = document.getElementById('dropdown');
+let get = item =>{
+	if(document.querySelector(item) !== null & typeof(document.querySelector(item)) !== "undefined"){
+		return document.querySelector(item);
+	}else{
+		return document.querySelector('#test');
+	}
+}
+let signin = get('#on');
+let signup = get('#off'); 
+let caution = get('#switch');
+let search = get('#search-bar');
+let dropdown = get('#dropdown');
+let rideOfferAc = get('.ride-offer-accept');
+let rideOfferPd = get('.ride-offer-pending');
+let rideAv = get('.ride-offer');
 let x;
-document.getElementById('dropdown-toggle').onclick = () =>{
+get('#accept').onclick = () =>{
+	rideOfferAc.style.display = "block";
+	rideOfferPd.style.display = "none";
+	rideAv.style.display = "none";
+}
+get('#pending').onclick = () =>{
+	rideOfferPd.style.display = "block";
+}
+get('#dropdown-toggle').onclick = () =>{
 	dropdown.style.display = "block";
 }
-document.getElementById('search').onclick = () => {
-	let destination = document.getElementById('search-box').value;
+get('#search').onclick = () => {
+	let destination = get('#search-box').value;
 	if(destination !== ""){
 		search.style.display = "block";
 	}
 }
-document.getElementsByClassName('close')[0].onclick = () =>{
+
+get('.close')[0].onclick = () =>{
     signin.style.display = "none";
 }
-document.getElementsByClassName('close')[1].onclick =() =>{
+get('.close')[1].onclick =() =>{
     signup.style.display = "none";
 }
-document.getElementById('signin').onclick =() =>{
+get('#signin').onclick =() =>{
 	signin.style.display = "block";
 }
-document.getElementById('signup').onclick = () =>{
+get('#signup').onclick = () =>{
 	signup.style.display = "block";
 }
-document.getElementById('pass').onchange = () =>{
-	let pass = document.getElementById('pass').value;
+get('#pass').onchange = () =>{
+	let pass = get('#pass').value;
 	let n = validation(pass);
 	x = (n >= 75)? true : false;
 }
-document.getElementById('continue').onclick = () =>{
+get('#continue').onclick = () =>{
 	if(x){
 		signup.style.display = "none";
 		caution.style.display = "block";
@@ -55,20 +74,33 @@ let validation = (word) =>{
 		n = word.match(/[0-9]/g)? n+=25 : n+=0;
 		n = word.match(/[$@#&!]/g)? n+=25 : n+=0;
 		if (n == 25) {
-			document.getElementById('error').innerHTML = "password is poor";
-			document.getElementById('pass').value = "";
+			get('#error').innerHTML = "password is poor";
+			get('#pass').value = "";
 		}else if (n == 50) {
-			document.getElementById('error').innerHTML = "password is fair!";
-			document.getElementById('pass').value = "";
+			get('#error').innerHTML = "password is fair!";
+			get('#pass').value = "";
 		}else if (n == 75) {
-			document.getElementById('error').innerHTML = "password is good!";
+			get('#error').innerHTML = "password is good!";
 		}else if (n == 100) {
-			document.getElementById('error').innerHTML = "password is strong!"
+			get('#error').innerHTML = "password is strong!"
 		}
 		return n;
 	}else if(word.length < 6){
-		document.getElementById('error').innerHTML = "Minimum password length is 6";
+		get('#error').innerHTML = "Minimum password length is 6";
 	}else{
-		document.getElementById('error').innerHTML = "Maximum password length is 12";
+		get('#error').innerHTML = "Maximum password length is 12";
+	}
+}
+let toggle = () =>{
+	let id = document.querySelector('.offer-response-b').id;
+	if(id.length > 0){
+		for (let i = 0; i < id.length; i++) {
+			get('#'+id[i]).onclick = () =>{
+				get('#offer'+id[i]).style.display = "block";
+			}
+			if(get('#offer'+id[i]).style.display = "block"){
+				get('#offer'+(!id[i])).style.display = "none";
+			}
+		}
 	}
 }
