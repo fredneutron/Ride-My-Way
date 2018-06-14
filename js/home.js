@@ -80,5 +80,5 @@ let validation = (word) =>{
 	}
 }
 let redirect = (url) =>{
-	window.location = url;
+	window.location.href = url;
 }
