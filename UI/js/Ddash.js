@@ -11,19 +11,19 @@ window.onclick = e => {
 		add.style.display = "none";
 	}
 }
-let toggle = () =>{
-	let id = document.getElementsByClassName('offer-response-b');
+let toggle = (word,classname) =>{
+	let id = document.getElementsByClassName(classname);
 	if(id.length > 0){
 		for (let i = 0; i < id.length; i++) {
 			document.getElementById(id[i].id).onclick = () =>{
-				if(document.getElementById('offer'+id[i].id).style.display == "block"){
-					document.getElementById('offer'+(id[i].id)).style.display = "none";
+				if(document.getElementById(word+id[i].id).style.display == "block"){
+					document.getElementById(word+(id[i].id)).style.display = "none";
 				}else{
-					document.getElementById('offer'+id[i].id).style.display = "block";
+					document.getElementById(word+id[i].id).style.display = "block";
 				}
 			}
 			
 		}
 	}
 }
- toggle();
+ toggle('offer','offer-response-b');

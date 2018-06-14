@@ -2,7 +2,20 @@ let signin = document.getElementById('on');
 let signup = document.getElementById('off'); 
 let caution = document.getElementById('switch');
 let search = document.getElementById('search-bar');
+let drive = document.getElementById('drive-info');
 let x;
+document.getElementById('drive').onclick =() =>{
+	caution.style.display = "none";
+	drive.style.display = "block";
+}
+document.getElementById('signin1').onclick = () =>{
+	signup.style.display = "none";
+	signin.style.display = "block";
+}
+document.getElementById('signup1').onclick = () =>{
+	signin.style.display = "none";
+	signup.style.display = "block";
+}
 document.getElementById('search').onclick = () => {
 	let destination = document.getElementById('search-box').value;
 	if(destination !== ""){
@@ -65,4 +78,7 @@ let validation = (word) =>{
 	}else{
 		document.getElementById('error').innerHTML = "Maximum password length is 12";
 	}
+}
+let redirect = (url) =>{
+	window.location = url;
 }

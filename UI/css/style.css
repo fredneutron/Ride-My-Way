@@ -57,8 +57,14 @@ body{
     position: relative;
     color: #555;
 }
-#dropdown-toggle,.dropdown-item,.notify{
+#dropdown-toggle,.dropdown-item,.notify,.toggle-bar,.unbox-content-foot>p>a{
 	cursor: pointer;
+}
+.toggle-bar{
+	padding: 3px 0px;
+}
+#sec2{
+	display: none;
 }
 .center{
 	left: 15%;
@@ -128,7 +134,7 @@ body{
 }
 .unbox-content {
 	border-radius: 5px !important;
-	border-radius: 5px;box-shadow: 0 0 8px rgba(0,0,0,0.4);
+	box-shadow: 0 0 8px rgba(0,0,0,0.4);
     background-color: #fefefe;
     margin: 10% auto; /* 15% from the top and centered */
     padding: 2%;
@@ -541,6 +547,33 @@ body{
 	text-align: left !important;
 	font-size: 12px !important;
 }
+.profile{
+	margin: 0 auto;
+	left: 10%;
+	right: 10%;
+	width: 80%;
+	text-align: center;
+}
+.settings{
+	width: 100%;
+}
+.settings-tab{
+	float: left;
+	width: 30%;
+	margin: 0;
+}
+.settings-content{
+	width: 70%;
+	float: right;
+	text-align: left;
+	border-radius: 5px !important;
+	box-shadow: 0 0 8px rgba(0,0,0,0.4);
+    background-color: #fefefe;
+}
+.settings-content-bar{
+	padding: 30px;
+}
+
 .foot{
 	display: block;
 	float: left;
@@ -550,4 +583,9 @@ body{
 .foot-bag{
 	background-color: #fff;
 	padding: 20px 0;
+}
+@media screen and (max-width: 480px){
+	body{
+		/*width: 1000px;*/
+	}
 }
