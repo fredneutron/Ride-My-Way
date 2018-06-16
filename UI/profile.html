@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ride My Way | Settings</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+	<section class="head">
+		<div class="top bar white">
+			<a class="bar-item title ds" href="#">Ride My Way</a>
+			<div class="bar-right">
+				<button class="bar-item btn btn-non ds msg">Messages</button>
+				<a  class="ds" id="dropdown-toggle">
+					<img src="images/mails.png">
+				</a>
+				<div class="dropdown" id="dropdown">
+					<ul>
+						<li class="dropdown-item">Babatunde Adelabu</li>
+						<li class="dropdown-item"><a href="passenger-dashboard.html">My Profile</a></li>
+						<li class="dropdown-item"><a href="profile.html">Settings</a></li>
+						<hr>
+						<li class="dropdown-item"><a href="index.html">Logout</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+	</section>
+	<section class="body">
+		<div class="dashboard">
+			<div class="dashboard-h">
+				<h1>Settings</h1>
+			</div>
+			<hr>
+			<div class="dashboard-content">
+				<div class="profile">
+					<div class="settings">
+						<div class="settings-tab">
+							<ul>
+								<li id="acct" class="toggle-bar">Account</li>
+								<li id="secu" class="toggle-bar">Security</li>
+							</ul>
+						</div>
+						<div class="settings-content">
+							<div class="settings-content-bar" id="acc1">
+								<h3>Account</h3>
+								<hr>
+								<form method="post" class="add-new" enctype="multidata/">
+									<label>Full Name :</label>
+									<input type="text" class="form-new" name="" required="" placeholder="Firstname Lastname">
+									<label>Email :</label>
+									<input type="email" class="form-new" name="" required="" placeholder="Email Address">
+									<label>Gender :</label>
+									<select class="form-new">
+										<optgroup>
+											<option value="Male">Male</option>
+											<option value="Female">Female</option>
+										</optgroup>
+									</select>
+									<label>Profile Picture :</label>
+									<input type="file" class="form-new" name="">
+									<button class="btn btn-tap" type="button">Save Changes</button>
+								</form>
+								<hr>
+								<form method="post" class="add-new">
+									<label>ACCOUNT DEACTIVATION</label>
+									<p>Please give us feedback on while you want to leave.</p>
+									<textarea rows="4" class="form-new" placeholder="Reasons while you are leaving..." required=""></textarea>
+									<button class="btn btn-tap">Deactivate Account</button>
+								</form>
+							</div>
+							<div class="settings-content-bar" id="sec2">
+								<h3>Security</h3>
+								<hr>
+								<form method="post" class="add-new">
+									<p>Change Password</p>
+									<label>Old Password :</label>
+									<input type="password" class="form-new" name="" required="" placeholder="Old Password">
+									<label>New Password :</label>
+									<input type="password" class="form-new" name="" required="" placeholder="New Password">
+									<input type="password" class="form-new" name="" required="" placeholder="Confirm New Password">
+									<label>Driver license :</label>
+									<input type="file" class="form-new" name="" required="" placeholder="">
+									<label>Vehicle Registration Number :</label>
+									<input type="text" class="form-new" placeholder="Vehicle Registration Number">
+									<button class="btn btn-tap" type="button">Save Changes</button>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="foot">
+		<div class="foot-bag center">
+			<p><a href="">Privacy Policy</a> | <a href="">Terms of Service</a> | <a href=""> About </a> <br>© Ride My Way lnc. 2018</p>
+		</div>
+	</section>
+	<script type="text/javascript" src="js/dropdown.js"></script>
+	<script type="text/javascript" src="js/profile.js"></script>
+</body>
+</html>
