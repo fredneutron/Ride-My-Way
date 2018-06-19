@@ -1,5 +1,5 @@
 {
-  "name": "RMW",
+  "name": "Ride-My-Way",
   "version": "1.0.0",
   "description": "Ride-my-Way App is a carpooling application that provides drivers with the ability to create ride offers and passengers to join available ride offers.",
   "main": "index.js",
@@ -30,7 +30,7 @@
     "mongoose": "^5.1.5"
   },
   "engines": {
-    "node": "4.1.1",
+    "node": "4.7.0",
     "npm": "5.5.1"
   }
 }
