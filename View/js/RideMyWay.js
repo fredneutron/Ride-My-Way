@@ -1,5 +1,5 @@
 let get = item =>{
-	if(document.querySelector(item) !== null & typeof(document.querySelector(item)) !== "undefined"){
+	if(document.querySelector(item) !== null){
 		return document.querySelector(item);
 	}else{
 		return document.querySelector('#test');

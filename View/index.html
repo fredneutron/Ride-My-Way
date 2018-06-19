@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Ride My Way</title>
+	<title>Ride My Way | Home</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
@@ -36,7 +36,8 @@
 						<tr>
 							<td class="result-h"><img class="result-img" src="images/mails.png"></td>
 							<td class="result-content">
-								<h3>Babatunde Adelabu</h3>
+								<h3>deserunt laborum</h3>
+								<p>Date: 24/06/2018</p>
 								<p>Time: 4:50pm</p>
 								<p>Location - Destination</p>
 							</td>
@@ -51,7 +52,8 @@
 						<tr>
 							<td class="result-h"><img class="result-img" src="images/mails.png"></td>
 							<td class="result-content">
-								<h3>kdkdkanklasndfk</h3>
+								<h3>deserunt laborum</h3>
+								<p>Date: 24/06/2018</p>
 								<p>Time: 4:50pm</p>
 								<p>Location - Destination</p>
 							</td>
@@ -66,7 +68,8 @@
 						<tr>
 							<td class="result-h"><img class="result-img" src="images/mails.png"></td>
 							<td class="result-content">
-								<h3>ad gkjfdajlnalnkl</h3>
+								<h3>deserunt laborum</h3>
+								<p>Date: 24/06/2018</p>
 								<p>Time: 4:50pm</p>
 								<p>Location - Destination</p>
 							</td>
@@ -110,17 +113,17 @@
 	    <span class="close">&times;</span><br>
 	    <div class="unbox-content-body">
 	    	<h2>RMW</h2>
-	    	<form method="post" class="form">
-	    		<input type="text" class="form-element" name="" placeholder="Email/ Username">
-	    		<input type="password" class="form-element" name=""  placeholder="Password">
-	    		<button class="btn btn-tap">Signin</button>
+	    	<form method="post" class="add-new">
+	    		<input type="text" class="form-new" name="" placeholder="Email/ Username">
+	    		<input type="password" class="form-new" name=""  placeholder="Password">
+	    		<button class="btn btn-tap" onclick="redirect('UI/passenger-dashboard.html');">Signin</button><br>
 	    		<input  type="checkbox" name="">
 	    		<span>Remember Me?</span>
 	    		<a href="">Forgot Password</a>
 	    	</form>
 	    </div>
 	    <div class="unbox-content-foot">
-	    	<p>Not a member yet? <a href=""> Join now</a></p>
+	    	<p>Not a member yet? <a id="signup1"> Join now</a></p>
 	    </div>
 	  </div>
 	</div>
@@ -130,13 +133,13 @@
 	    <span class="close">&times;</span><br>
 	    <div class="unbox-content-body">
 	    	<h2>RMW</h2>
-	    	<form method="post" class="form">
+	    	<form method="post" class="add-new">
 	    		<p class="headup">You are</p>
 	    		<p>a</p>
 	    		<br>
-	    		<button class="btn btn-tap">Driver</button>Or
+	    		<button class="btn btn-tap" id="usertype" name="usertype" type="button">Driver</button>Or
 	    		<hr>
-	    		<button class="btn btn-tap">Passenger</button>
+	    		<button class="btn btn-tap" id="usertype" name="usertype" type="button" onclick="redirect('UI/passenger-dashboard.html');">Passenger</button>
 	    	</form>
 	    </div>
 	  </div>
@@ -147,22 +150,40 @@
 	    <span class="close">&times;</span><br>
 	    <div class="unbox-content-body">
 	    	<h2>RMW</h2>
-	    	<form method="post" class="form">
-	    		<input type="text" class="form-element" name="" placeholder="First Name" required="">
-	    		<input type="text" class="form-element" name="" placeholder="Last Name" required="">
-	    		<input type="email" class="form-element" name="" placeholder="Email Address" required="">
-	    		<input type="radio" name="gender" value="Male" required="">Male
-	    		<input type="radio" name="gender" value="Female" required="">Female
-	    		<input type="date" class="form-element" name="" required="">
-	    		<input type="password" class="form-element" id="pass"  placeholder="Password" required="">
+	    	<form method="post" class="add-new">
+	    		<input type="text" class="form-new" id="first" placeholder="First Name" required="">
+	    		<input type="text" class="form-new" id="last" placeholder="Last Name" required="">
+	    		<input type="email" class="form-new" id="email" placeholder="Email Address" required="">
+	    		<input type="radio" id="gender" name="gender" value="Male" required="">Male
+	    		<input type="radio" id="gender" name="gender" value="Female" required="">Female
+	    		<input type="date" class="form-new" id="date" required="">
+	    		<input type="password" class="form-new" id="pass"  placeholder="Password" required="">
 	    		<p id="error"></p>
-	    		<input type="password" class="form-element" id="confirm"  placeholder="Confirm Password" required="">
-	    		<button class="btn btn-tap" type="button" id="continue">Sign Up</button>
+	    		<input type="password" class="form-new" id="confirm"  placeholder="Confirm Password" required="">
+	    		<button class="btn btn-tap" type="button" id="continue">Sign Up</button><br>
 	    		<span>By joining I agree to receive emails from Ride My Way.</span>
 	    	</form>
 	    </div>
 	    <div class="unbox-content-foot">
-	    	<p>Already a member? <a href="" id="signin"> Sign In</a></p>
+	    	<p>Already a member? <a  id="signin1"> Sign In</a></p>
+	    </div>
+	    <div id="test"></div>
+	  </div>
+	</div>
+	<div id="drive-info" class="unbox">
+  		<!-- Unbox content -->
+	  <div class="unbox-content">
+	    <span class="close">&times;</span><br>
+	    <div class="unbox-content-body">
+	    	<h2>RMW</h2>
+	    	<form method="post" class="add-new" onsubmit="formHandle();">
+	    		<p>please upload of picture of your driver's license.</p>
+	    		<label>Driver License :</label>l
+	    		<input type="file" class="form-new" id="p-image" required="">
+	    		<label>Vehicle Registration Number :</label>
+	    		<input type="text" class="form-new" id="vrn" placeholder="Vehicle Registration Number :" required="">
+	    		<button class="btn btn-tap" type="button">Continue</button>
+	    	</form>
 	    </div>
 	    <div id="test"></div>
 	  </div>
