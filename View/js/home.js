@@ -1,13 +1,21 @@
-import get from './get';
+const get = item => {
+	if(document.querySelector(item) !== null){
+		return document.querySelector(item);
+	}else{
+		return 'item is null';
+	}
+}
+
 let signin = get('#on');
 let signup = get('#off'); 
 let caution = get('#switch');
 let search = get('#search-bar');
 let drive = get('#drive-info');
 let x;
-get('#usertype').onclick =() =>{
+get('#userdr').onclick =() =>{
 	caution.style.display = "none";
 	drive.style.display = "block";
+	get('input[name="usertype"]').value = "driver";
 }
 get('#signin1').onclick = () =>{
 	signup.style.display = "none";
@@ -23,10 +31,10 @@ get('#search').onclick = () => {
 		search.style.display = "block";
 	}
 }
-get('.close')[0].onclick = () =>{
+get('.close').onclick = () =>{
     signin.style.display = "none";
 }
-get('.close')[1].onclick = () =>{
+get('.close').onclick = () =>{
     signup.style.display = "none";
 }
 get('#signin').onclick =() =>{
@@ -53,6 +61,8 @@ window.onclick = e => {
 		signup.style.display = "none";
 	}else if(e.target == caution){
 		caution.style.display = "none";
+	}else if(e.target == drive){
+		drive.style.display = "none";
 	}
 }
 let validation = (word) =>{
@@ -86,14 +96,14 @@ let redirect = (url) => {
 let formHandle = () => {
 	let name = get('#first').value+" "+get('#last').value;
 	let email = get('#email').value;
-	let gender = get('#gender').value;
+	let gender = get('input[name="gender"]:checked').value;
 	let dob = get('#date').value;
 	let pass = get('#pass').value;
 	let usertype = get('#usertype').value;
 	let pic = get('#p-image').value;
 	let vrn = get('#vrn').value;
 
-	fetch('/api/users', {
+	fetch('/api/v1/users', {
 		method: 'POST',
 		headers: new Headers(),
 		body:JSON.stringify({
@@ -108,4 +118,42 @@ let formHandle = () => {
 	}).then(data => data.json())
 	.then(data => console.log(data))
 	.catch(er => console.log(err));
+}
+let formPass = () => {
+	get('input[name="usertype"]').value = "passenger";
+	let name = get('#first').value+" "+get('#last').value;
+	let email = get('#email').value;
+	let gender = get('input[name="gender"]:checked').value;
+	let dob = get('#date').value;
+	let pass = get('#pass').value;
+	let usertype = get('input[name="usertype"]').value;
+	let pic = get('#p-image').value;
+	let vrn = get('#vrn').value;
+
+	fetch('/api/v1/users', {
+		method: 'POST',
+		headers: new Headers(),
+		body:JSON.stringify({
+			"name": name,
+			"email": email,
+			"gender": gender,
+			"dob": dob,
+			"picture": "",
+			"password": pass,
+			"userType": usertype
+		})
+	}).then(data => data.json())
+	.then(data => console.log(data))
+	.catch(err => console.log(err));
+	window.location.href = "passenger-dashboard.html";
+}
+let login = () => {
+	let email = get('input[name="logemail"]').value;
+	let pass = get('input[name="logpass"]').value;
+
+	fetch('/api/v1/users').then(data => {
+		data.json();
+	}).then(() => {
+		window.location.href = "dashboard.html";
+	}).catch(err => console.log(err));
 }

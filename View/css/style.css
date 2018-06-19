@@ -107,6 +107,11 @@ body{
 	font-size: 1.7em;
 	color: #000;
 }
+.tog{
+	display: block;
+	padding: 10px 20px;
+	width: 100%;
+}
 .bar{
 	width: 100%;
 	display: block;
