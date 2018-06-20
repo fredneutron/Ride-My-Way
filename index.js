@@ -1,14 +1,10 @@
 import express from 'express';
-import routes from './route/user';
-import bodyParser from 'body-parser';
+import Middleware from './Middleware/index';
 
 const app = express();
-
-app.use(bodyParser.json());
-app.use(express.static('View'));
-//initialise routes
-app.use('/api/v1', routes);
+//connecting Middleware
+Middleware(app);
 //add listen port for server
-app.listen(process.env.port || 4000, () => {
+app.listen(process.env.PORT || 4000, () => {
   console.log('listening now');
 });

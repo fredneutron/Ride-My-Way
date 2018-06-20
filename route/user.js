@@ -1,16 +1,24 @@
 import express from 'express';
-import userSet from '../model/user';
-import userdb from '../Database/index.js';
+import md5 from '../helper/md5';
+import userdb from '../Database/index.json';
 
 const user = express.Router();
-//get the list of ride 
+//get the list of user 
 user.get('/users', (req,res) => {
-	res.send(userdb.users);
+	//res(userdb.users.req.);
+	console.log(req.params.id);
+	res.send(req.params.id);
 });
-//add a ride
+user.get('/getusers/:id', (req,res) => {
+	//res(userdb.users.req.);
+	console.log(req.params.id);
+	res.end(req.id);
+});
+//
+//add a user
 user.post('/users', (req,res) => {
-	//let userSet = new userSet(req.body);
-	console.log(userSet);
+	//let pass = blowFish(req.body.password,req.body.dob);
+	console.log(req.body);
 	let newUser = {
 		"name": req.body.name,
 		"email": req.body.email,
@@ -20,14 +28,23 @@ user.post('/users', (req,res) => {
 		"password": req.body.password,
 		"userType": req.body.userType
 	};
-	userdb.users.push(newUser);
-	res.send(""+userdb.users.indexOf(userdb.users.filter(x => x == newUser))+"");
+	//res.send(req.body.name);
+	let id = req.body.name + Math.floor((Math.random() * 6000) + 1);
+	console.log(id);
+	userdb.users.id = req.body;
+	res.send(id);
+	console.log(userdb);
 });
-//update a ride
+user.post('/getuserdetails', (req,res) => {
+	console.log(userdb.users[req.id]);
+	res.send(userdb.users[req.id]);
+
+});
+//update a user
 user.put('/users/:id', (req,res) => {
 	res.send({type: 'PUT'});
 }); 
-//delete a ride
+//delete a user
 user.delete('/users/:id', (req,res) => {
 	console.log(req.params.id); 
 	res.send({type: 'DELETE'});

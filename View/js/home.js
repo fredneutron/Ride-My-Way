@@ -1,11 +1,3 @@
-const get = item => {
-	if(document.querySelector(item) !== null){
-		return document.querySelector(item);
-	}else{
-		return 'item is null';
-	}
-}
-
 let signin = get('#on');
 let signup = get('#off'); 
 let caution = get('#switch');
@@ -99,13 +91,21 @@ let formHandle = () => {
 	let gender = get('input[name="gender"]:checked').value;
 	let dob = get('#date').value;
 	let pass = get('#pass').value;
-	let usertype = get('#usertype').value;
+	let usertype = get('input[name="usertype"]').value;
 	let pic = get('#p-image').value;
 	let vrn = get('#vrn').value;
-
+	let id = '';
 	fetch('/api/v1/users', {
 		method: 'POST',
-		headers: new Headers(),
+		credentials: 'same-origin',
+		cache: 'no-cache',
+		mode: 'cors',
+		redirect: 'follow',
+		referrer: 'no-referrer',
+		headers: {
+			'user-agent': 'Mozilla/4.0 MDN Example',
+			'content-type': 'application/json'
+		},
 		body:JSON.stringify({
 			"name": name,
 			"email": email,
@@ -115,9 +115,28 @@ let formHandle = () => {
 			"password": pass,
 			"userType": usertype
 		})
-	}).then(data => data.json())
-	.then(data => console.log(data))
-	.catch(er => console.log(err));
+	}).then(res => {
+		id = res;
+		fetch('/api/v1/drivers', {
+			method: 'POST',
+			credentials: 'same-origin',
+			cache: 'no-cache',
+			mode: 'cors',
+			redirect: 'follow',
+			referrer: 'no-referrer',
+			headers: {
+				'user-agent': 'Mozilla/4.0 MDN Example',
+				'content-type': 'application/json'
+			},
+			body:JSON.stringify({
+				"id": res,
+				"driver-license": pic,
+				"VRN": vrn
+			})
+		}).then(data => console.log(data));
+		window.location.href = "dashboard.html";
+	}).catch(err => console.log(err));
+	window.localStorage.setItem("key", id);
 }
 let formPass = () => {
 	get('input[name="usertype"]').value = "passenger";

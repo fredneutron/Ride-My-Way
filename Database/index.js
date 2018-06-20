@@ -1,6 +1,8 @@
 let rmw = {
 	"users":[],
-	"ride":[]
+	"ride":[],
+	"drivers": [],
+	"passenger":[]
 }
 
 export default rmw;

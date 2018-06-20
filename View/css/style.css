@@ -270,6 +270,12 @@ body{
 	margin-bottom: 15px; 
 	font-size: 1.3em;
 }
+.form-new:focus{
+	border: 0px !important;
+	color: #000;
+	outline: none;
+	box-shadow: 0px 2px 0px 0px #428bca;
+}
 .form .btn-tap{
 	padding: 15px 0%;
 	width: 100%;
