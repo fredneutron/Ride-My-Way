@@ -115,7 +115,7 @@ let formHandle = () => {
 			"password": pass,
 			"userType": usertype
 		})
-	}).then(res => {
+	}).then( res => {
 		id = res;
 		fetch('/api/v1/drivers', {
 			method: 'POST',
@@ -134,6 +134,7 @@ let formHandle = () => {
 				"VRN": vrn
 			})
 		}).then(data => console.log(data));
+		console.log('work!');
 		window.location.href = "dashboard.html";
 	}).catch(err => console.log(err));
 	window.localStorage.setItem("key", id);

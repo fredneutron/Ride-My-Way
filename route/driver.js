@@ -1,4 +1,5 @@
 import express from 'express';
+import fs from 'fs';
 
 const driver = express.Router();
 //get the list of driv 
@@ -7,8 +8,22 @@ driver.get('/drivers', (req,res) => {
 });
 //add a driver
 driver.post('/drivers', (req,res) => {
-	console.log(req.body);
-	//res.send();
+	fs.readFile(__dirname+'/../Database/index.json','utf8', (err, data) => {
+		if (err){
+        	console.log(err);
+    	} else {
+    		let obj = JSON.parse(data);
+    		//let id = "user" + (Object.keys(obj.users).length + 1);
+			obj.drivers[req.body.id] = req.body;
+			console.log(obj.drivers[req.body.id]);
+			let json = JSON.stringify(obj);
+			fs.writeFile(__dirname+'/../Database/index.json', json, 'utf8', err => {
+				if(err) throw err;
+				console.log("file has been saved");
+			});
+			res.send(req.body.id);
+    	}
+	});
 });
 //update a driver
 driver.put('/drivers/:id', (req,res) => {

@@ -1,9 +1,12 @@
-const getId = (array,arrayValue, name) => {
-	if(typeof array !== "undefined" & typeof name !== "undefined"){
-			for (let i = 0; i < array.length; i++) {
-				let n = array[i][arrayValue] == name ? i : 0;
+const userValidate = (obj, email,password) => {
+	if(typeof obj !== "undefined" & typeof name !== "undefined"){
+			for (let i = 1; i <= Object.keys(obj).length; i++) {
+				if(obj['user'+ i].email == email & obj['user'+ i].password == password){
+					return 'user'+i;
+					break;
+				}
 			}
 	}
 }
 
-export default getId;
+export default userValidate;

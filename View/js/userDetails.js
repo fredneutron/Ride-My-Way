@@ -1,20 +1,6 @@
-window.onload = () =>{
+document.addEventListener("DOMContentLoaded", () =>{
 	let key = window.localStorage.getItem("key");
-	fetch('/api/v1/getuserdetails', {
-		method: 'POST',
-		credentials: 'same-origin',
-		cache: 'no-cache',
-		mode: 'cors',
-		redirect: 'follow',
-		referrer: 'no-referrer',
-		headers: {
-			'user-agent': 'Mozilla/4.0 MDN Example',
-			'content-type': 'application/json'
-		},
-		body:JSON.stringify({
-			"id": key
-		})
-	})
+	fetch('/api/v1/users/?id='+key)
 	.then(res => {
 		window.localStorage.setItem("name",res.body.name);
 		window.localStorage.setItem("picture",res.body.picture);
@@ -28,7 +14,7 @@ window.onload = () =>{
 		get('#myprofile').href = "passenger-dashboard.html";
 	}
 
-}
+});
 let getUrlParameter = (name) => {
 	name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
     let regex = new RegExp('[\\?&]' + name + '=([^&#]*)');

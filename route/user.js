@@ -1,44 +1,50 @@
 import express from 'express';
-import md5 from '../helper/md5';
+import userValidate from '../helper/getId';
 import userdb from '../Database/index.json';
+import fs from 'fs';
 
 const user = express.Router();
 //get the list of user 
 user.get('/users', (req,res) => {
-	//res(userdb.users.req.);
-	console.log(req.params.id);
-	res.send(req.params.id);
+	fs.readFile(_userdb,'utf8', (err,data) => {
+		res.send(data.users);
+	});
 });
-user.get('/getusers/:id', (req,res) => {
-	//res(userdb.users.req.);
-	console.log(req.params.id);
-	res.end(req.id);
+user.get('/users/:id', (req,res) => {
+	fs.readFile(__dirname+'/../Database/index.json','utf8', (err,data) => {
+		let obj = JSON.parse(data);
+		let user = obj.users[req.params.id];
+ 		console.log( user );
+ 		res.send(JSON.stringify(user));
+	});
 });
 //
 //add a user
 user.post('/users', (req,res) => {
-	//let pass = blowFish(req.body.password,req.body.dob);
-	console.log(req.body);
-	let newUser = {
-		"name": req.body.name,
-		"email": req.body.email,
-		"gender": req.body.gender,
-		"dob": req.body.dob,
-		"picture": "",
-		"password": req.body.password,
-		"userType": req.body.userType
-	};
-	//res.send(req.body.name);
-	let id = req.body.name + Math.floor((Math.random() * 6000) + 1);
-	console.log(id);
-	userdb.users.id = req.body;
-	res.send(id);
-	console.log(userdb);
+	fs.readFile(__dirname+'/../Database/index.json','utf8', (err, data) => {
+		if (err){
+        	console.log(err);
+    	} else {
+    		let obj = JSON.parse(data);
+    		let id = "user" + (Object.keys(obj.users).length + 1);
+			obj.users[id] = req.body;
+			let json = JSON.stringify(obj);
+			fs.writeFile(__dirname+'/../Database/index.json', json, 'utf8', err => {
+				if(err) throw err;
+				console.log("file has been saved");
+				console.log(id);
+			});
+			res.send(id);
+    	}
+	});
 });
-user.post('/getuserdetails', (req,res) => {
-	console.log(userdb.users[req.id]);
-	res.send(userdb.users[req.id]);
+user.post('/authusers', (req,res) => {
+	fs.readFile(__dirname+'/../Database/index.json','utf8', (err,data) => {
+		let obj = JSON.parse(data);
+		let n = userValidate(obj.users, req.body.logemail, req.body.logpass);
+ 		res.send(n);
 
+	});
 });
 //update a user
 user.put('/users/:id', (req,res) => {

@@ -113,10 +113,10 @@
 	    <span class="close">&times;</span><br>
 	    <div class="unbox-content-body">
 	    	<h2>RMW</h2>
-	    	<form method="post" class="add-new" onsubmit="login();">
+	    	<form method="POST" class="add-new" action="/v1/authusers">
 	    		<input type="text" class="form-new" name="logemail" placeholder="Email/ Username">
 	    		<input type="password" class="form-new" name="logpass"  placeholder="Password">
-	    		<button class="btn btn-tap">Signin</button><br>
+	    		<button class="btn btn-tap" type="submit">Signin</button><br>
 	    		<input  type="checkbox" name="">
 	    		<span>Remember Me?</span>
 	    		<a href="">Forgot Password</a>
@@ -133,7 +133,7 @@
 	    <span class="close">&times;</span><br>
 	    <div class="unbox-content-body">
 	    	<h2>RMW</h2>
-	    	<form method="post">
+	    	<form method="POST">
 	    		<p class="headup">You are</p>
 	    		<p>a</p>
 	    		<br>
@@ -177,12 +177,12 @@
 	    <span class="close">&times;</span><br>
 	    <div class="unbox-content-body">
 	    	<h2>RMW</h2>
-	    	<form method="post" class="add-new" onsubmit="formHandle();">
+	    	<form method="post" enctype="multipart/form-data" class="add-new" onsubmit="formHandle();">
 	    		<p>please upload of picture of your driver's license.</p>
-	    		<label>Driver License :</label>l
+	    		<label>Driver License :</label>
 	    		<input type="file" class="form-new" id="p-image" required="">
 	    		<label>Vehicle Registration Number :</label>
-	    		<input type="text" class="form-new" id="vrn" placeholder="Vehicle Registration Number :" required="">
+	    		<input type="text" class="form-new" id="vrn" placeholder="Vehicle Registration Number" required="">
 	    		<button class="btn btn-tap" type="submit">Continue</button>
 	    	</form>
 	    </div>
