@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "eslint index.js",
     "start": "babel-node index.js --presets env",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --compilers js:babel-core/register ./test/ '*.test.js'   --recursive"
   },
   "keywords": [],
   "author": "Babatunde Adelabu",
@@ -16,16 +16,19 @@
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
     "babel-register": "^6.26.0",
+    "chai": "^4.1.2",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.12.0",
     "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-react": "^7.4.0",
+    "mocha": "^5.2.0",
     "nodemon": "^1.17.5"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
+    "cross-env": "^5.2.0",
     "express": "^4.16.3",
     "mongoose": "^5.1.5"
   },

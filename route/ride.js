@@ -2,33 +2,38 @@ import express from 'express';
 import userValidate from '../helper/userValidate';
 import fs from 'fs';
 
-const user = express.Router();
-//get the list of user 
-user.get('/users', (req,res) => {
+const ride = express.Router();
+//get the list of ride 
+ride.get('/rides', (req,res) => {
 	fs.readFile(__dirname+'/../Database/index.json','utf8', (err,data) => {
 		let obj = JSON.parse(data);
-		res.send(obj.users);
+		res.send(obj.rides);
 	});
 });
-user.get('/getusers/:id', (req,res) => {
+ride.get('/rides/:id', (req,res) => {
 	fs.readFile(__dirname+'/../Database/index.json','utf8', (err,data) => {
 		let obj = JSON.parse(data);
-		let user = obj.users[req.params.id];
+		let user = obj.rides[req.params.id];
  		console.log( user );
  		res.end(JSON.stringify(user));
 	});
 });
 //
-//add a user
-user.post('/users', (req,res) => {
+//add a ride
+ride.post('/rides', (req,res) => {
 	fs.readFile(__dirname+'/../Database/index.json','utf8', (err, data) => {
 		if (err){
         	console.log(err);
     	} else {
     		let obj = JSON.parse(data);
-    		let id = "user" + (Object.keys(obj.users).length + 1);
-			obj.users[id] = req.body;
-			console.log("users ="+req.body);
+    		let id = "ride" + (Object.keys(obj.ride[req.body.id]).length + 1);
+			obj.ride[req.body.id].ride[id] = {
+				"location": req.body.location,
+				"destination": req.body.destination,
+				"date": req.body.date,
+				"time": req.body.time
+			};
+			console.log("rides ="+req.body);
 			let json = JSON.stringify(obj);
 			fs.writeFile(__dirname+'/../Database/index.json', json, 'utf8', err => {
 				if(err) throw err;
@@ -39,23 +44,14 @@ user.post('/users', (req,res) => {
     	}
 	});
 });
-user.post('/authusers', (req,res) => {
-	fs.readFile(__dirname+'/../Database/index.json','utf8', (err,data) => {
-		let obj = JSON.parse(data);
-		console.log(req.body);
-		let n = userValidate(obj.users, req.body.user, req.body.pass);
-		console.log(n);
- 		res.send({key : n});
-	});
-});
-//update a user
-user.put('/users/:id', (req,res) => {
+//update a ride
+ride.put('/rides/:id', (req,res) => {
 	res.send({type: 'PUT'});
 }); 
-//delete a user
-user.delete('/users/:id', (req,res) => {
+//delete a ride
+ride.delete('/rides/:id', (req,res) => {
 	console.log(req.params.id); 
 	res.send({type: 'DELETE'});
 });
 
-export default user;
+export default ride;

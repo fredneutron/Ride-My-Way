@@ -13,9 +13,10 @@ driver.post('/drivers', (req,res) => {
         	console.log(err);
     	} else {
     		let obj = JSON.parse(data);
+    		console.log("drivers = "+ req.body.id);
     		//let id = "user" + (Object.keys(obj.users).length + 1);
 			obj.drivers[req.body.id] = req.body;
-			console.log(obj.drivers[req.body.id]);
+			console.log("driver id = "+obj.drivers[req.body.id]);
 			let json = JSON.stringify(obj);
 			fs.writeFile(__dirname+'/../Database/index.json', json, 'utf8', err => {
 				if(err) throw err;

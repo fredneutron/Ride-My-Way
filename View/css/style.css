@@ -32,7 +32,7 @@ body{
 .dropdown{
 	background: #fff;
 	right: 42px;
-	top: 70%;
+	/*top: 70%;*/
 	display: none;
 	z-index: 10;
 	position: absolute;
@@ -361,7 +361,8 @@ body{
 
 }
 .ds img{
-	width: 30px;
+	width: 40px;
+	height: 40px;
 	border-radius: 35px;
 	margin-top: 0;
 	padding: 0; 
@@ -538,6 +539,26 @@ body{
 }
 .red{
 	background: #a80026 !important;
+}
+.danger,.caution,.good,.success{
+	padding: 3px 5px;
+	font-size: 0.8em;
+}
+.danger{
+	color: #dc3545 !important;
+	background-color: #f2dede;
+}
+.caution{
+	color: #fd7e14 !important;
+	background-color: #fcf8e3;
+}
+.good{
+	color: #007bff !important;
+	background-color: #d9edf7;
+}
+.success{
+	color: #28a745 !important;
+	background-color: #dff0d8;
 }
 .yellow{
 	background: #c04d00 !important;

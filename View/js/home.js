@@ -4,6 +4,8 @@ let caution = get('#switch');
 let search = get('#search-bar');
 let drive = get('#drive-info');
 let x;
+let pau;
+let id;
 get('#userdr').onclick =() =>{
 	caution.style.display = "none";
 	drive.style.display = "block";
@@ -38,12 +40,15 @@ get('#signup').onclick = () =>{
 get('#pass').onchange = () =>{
 	let pass = get('#pass').value;
 	let n = validation(pass);
+	pau = pass;
 	x = (n >= 75)? true : false;
 }
 get('#continue').onclick = () =>{
-	if(x){
+	if(x & pau == get('#confirm').value){
 		signup.style.display = "none";
 		caution.style.display = "block";
+	}else{
+		get('#error1').innerHTML = "<span class='danger'>Please enter the correct password to confirm<span>";
 	}
 }
 window.onclick = e => {
@@ -65,21 +70,21 @@ let validation = (word) =>{
 		n = word.match(/[0-9]/g)? n+=25 : n+=0;
 		n = word.match(/[$@#&!]/g)? n+=25 : n+=0;
 		if (n == 25) {
-			get('#error').innerHTML = "password is poor";
+			get('#error').innerHTML = "<span class='danger'>password is poor!</span>";
 			get('#pass').value = "";
 		}else if (n == 50) {
-			get('#error').innerHTML = "password is fair!";
+			get('#error').innerHTML = "<span class='caution'>password is fair!</span>";
 			get('#pass').value = "";
 		}else if (n == 75) {
-			get('#error').innerHTML = "password is good!";
+			get('#error').innerHTML = "<span class='good'>password is good!</span>";
 		}else if (n == 100) {
-			get('#error').innerHTML = "password is strong!"
+			get('#error').innerHTML = "<span class='success'>password is strong!</span>"
 		}
 		return n;
 	}else if(word.length < 6){
-		get('#error').innerHTML = "Minimum password length is 6";
+		get('#error').innerHTML = "<span class='danger'>Minimum password length is 6</span>";
 	}else{
-		get('#error').innerHTML = "Maximum password length is 12";
+		get('#error').innerHTML = "<span class='danger'>Maximum password length is 12</span>";
 	}
 }
 let redirect = (url) => {
@@ -94,14 +99,10 @@ let formHandle = () => {
 	let usertype = get('input[name="usertype"]').value;
 	let pic = get('#p-image').value;
 	let vrn = get('#vrn').value;
-	let id = '';
+	
 	fetch('/api/v1/users', {
 		method: 'POST',
-		credentials: 'same-origin',
-		cache: 'no-cache',
-		mode: 'cors',
-		redirect: 'follow',
-		referrer: 'no-referrer',
+		redirect: 'error',
 		headers: {
 			'user-agent': 'Mozilla/4.0 MDN Example',
 			'content-type': 'application/json'
@@ -111,33 +112,32 @@ let formHandle = () => {
 			"email": email,
 			"gender": gender,
 			"dob": dob,
-			"picture": "",
+			"picture": "/images/Koala.jpg",
 			"password": pass,
 			"userType": usertype
 		})
-	}).then( res => {
-		id = res;
+	})
+	.then(res => res.json())
+	.then(data => {
+		id = data.key;
 		fetch('/api/v1/drivers', {
 			method: 'POST',
-			credentials: 'same-origin',
-			cache: 'no-cache',
-			mode: 'cors',
-			redirect: 'follow',
-			referrer: 'no-referrer',
+			redirect: 'error',
 			headers: {
 				'user-agent': 'Mozilla/4.0 MDN Example',
 				'content-type': 'application/json'
 			},
 			body:JSON.stringify({
-				"id": res,
+				"id": id,
 				"driver-license": pic,
 				"VRN": vrn
 			})
-		}).then(data => console.log(data));
-		console.log('work!');
+		}).then(re => re.json())
+		.then(res => console.log(res))
+		.catch(err => console.log(err));
+		window.localStorage.setItem("key", id);
 		window.location.href = "dashboard.html";
 	}).catch(err => console.log(err));
-	window.localStorage.setItem("key", id);
 }
 let formPass = () => {
 	get('input[name="usertype"]').value = "passenger";
@@ -152,28 +152,52 @@ let formPass = () => {
 
 	fetch('/api/v1/users', {
 		method: 'POST',
-		headers: new Headers(),
+		redirect: 'error',
+		headers: {
+				'user-agent': 'Mozilla/4.0 MDN Example',
+				'content-type': 'application/json'
+		},
 		body:JSON.stringify({
 			"name": name,
 			"email": email,
 			"gender": gender,
 			"dob": dob,
-			"picture": "",
+			"picture": "/images/Koala.jpg",
 			"password": pass,
 			"userType": usertype
 		})
 	}).then(data => data.json())
-	.then(data => console.log(data))
+	.then(data => {
+		id = data.key;
+	})
 	.catch(err => console.log(err));
-	window.location.href = "passenger-dashboard.html";
+	window.localStorage.setItem("key", id);
+	window.location.href = "dashboard.html";
 }
-let login = () => {
+let login = (e) => {
+	e.preventDefault();
 	let email = get('input[name="logemail"]').value;
-	let pass = get('input[name="logpass"]').value;
-
-	fetch('/api/v1/users').then(data => {
-		data.json();
-	}).then(() => {
+	let passw = get('input[name="logpass"]').value;
+	fetch('/api/v1/authusers', {
+		method: 'POST',
+		redirect: 'error',
+		headers: {
+				'user-agent': 'Mozilla/4.0 MDN Example',
+				'content-type': 'application/json'
+		},
+		body:JSON.stringify({
+			"user": email,
+			"pass": pass,
+		})
+	}).then(res => res.json())
+	.then(data => {
+		id = data.key;
+		alert(id);
+	});
+	if(typeof id !== "undefined" & typeof id !== null){
+		window.localStorage.setItem("key", id);
 		window.location.href = "dashboard.html";
-	}).catch(err => console.log(err));
+	}else{
+		get('#logerr').innerHTML = "<span class='danger'> Username/Password incorrect !</span>";
+	}
 }
