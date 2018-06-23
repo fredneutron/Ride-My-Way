@@ -6,16 +6,16 @@ let drive = get('#drive-info');
 let x;
 let pau;
 let id;
-get('#userdr').onclick =() =>{
+get('#userdr').onclick = () => {
 	caution.style.display = "none";
 	drive.style.display = "block";
 	get('input[name="usertype"]').value = "driver";
 }
-get('#signin1').onclick = () =>{
+get('#signin1').onclick = () => {
 	signup.style.display = "none";
 	signin.style.display = "block";
 }
-get('#signup1').onclick = () =>{
+get('#signup1').onclick = () => {
 	signin.style.display = "none";
 	signup.style.display = "block";
 }
@@ -25,25 +25,25 @@ get('#search').onclick = () => {
 		search.style.display = "block";
 	}
 }
-get('.close').onclick = () =>{
+get('.close').onclick = () => {
     signin.style.display = "none";
 }
-get('.close').onclick = () =>{
+get('.close').onclick = () => {
     signup.style.display = "none";
 }
-get('#signin').onclick =() =>{
+get('#signin').onclick = () => {
 	signin.style.display = "block";
 }
-get('#signup').onclick = () =>{
+get('#signup').onclick = () => {
 	signup.style.display = "block";
 }
-get('#pass').onchange = () =>{
+get('#pass').onchange = () => {
 	let pass = get('#pass').value;
 	let n = validation(pass);
 	pau = pass;
 	x = (n >= 75)? true : false;
 }
-get('#continue').onclick = () =>{
+get('#continue').onclick = () => {
 	if(x & pau == get('#confirm').value){
 		signup.style.display = "none";
 		caution.style.display = "block";
@@ -90,7 +90,8 @@ let validation = (word) =>{
 let redirect = (url) => {
 	window.location = url;
 }
-let formHandle = () => {
+get('#drisignup').onclick = (event) => {
+	event.preventDefault();
 	let name = get('#first').value+" "+get('#last').value;
 	let email = get('#email').value;
 	let gender = get('input[name="gender"]:checked').value;
@@ -135,11 +136,12 @@ let formHandle = () => {
 		}).then(re => re.json())
 		.then(res => console.log(res))
 		.catch(err => console.log(err));
-		window.localStorage.setItem("key", id);
+		localStorage.setItem("key", id);
 		window.location.href = "dashboard.html";
 	}).catch(err => console.log(err));
 }
-let formPass = () => {
+get('#passignup').onclick = (event) => {
+	event.preventDefault();
 	get('input[name="usertype"]').value = "passenger";
 	let name = get('#first').value+" "+get('#last').value;
 	let email = get('#email').value;
@@ -171,11 +173,11 @@ let formPass = () => {
 		id = data.key;
 	})
 	.catch(err => console.log(err));
-	window.localStorage.setItem("key", id);
+	localStorage.setItem("key", id);
 	window.location.href = "dashboard.html";
 }
-let login = (e) => {
-	e.preventDefault();
+get('#log').onclick = (event) => {
+	event.preventDefault();
 	let email = get('input[name="logemail"]').value;
 	let passw = get('input[name="logpass"]').value;
 	fetch('/api/v1/authusers', {
@@ -187,17 +189,18 @@ let login = (e) => {
 		},
 		body:JSON.stringify({
 			"user": email,
-			"pass": pass,
+			"pass": passw,
 		})
 	}).then(res => res.json())
 	.then(data => {
 		id = data.key;
-		alert(id);
-	});
-	if(typeof id !== "undefined" & typeof id !== null){
-		window.localStorage.setItem("key", id);
-		window.location.href = "dashboard.html";
-	}else{
-		get('#logerr').innerHTML = "<span class='danger'> Username/Password incorrect !</span>";
-	}
+		if(typeof data.key == "undefined" & typeof data.key == "null"){
+			get('#logerr').innerHTML = "<span class='danger'> Username/Password incorrect !</span>";
+		}else if(typeof data.key !== "undefined" & typeof data.key !=="null"){
+			localStorage.setItem("key", id);
+			if(localStorage.getItem("key") !== "undefined"){
+				window.location.href = "dashboard.html";
+			}
+		}
+	}).catch(err => console.log(err));
 }

@@ -10,15 +10,19 @@
 	<section class="head">
 		<div class="top bar white">
 			<a class="bar-item title ds" href="#">Ride My Way</a>
+			<form method="post" class="bar-item search-form">
+		    	<input type="text" class="search-u" name="" id="search-box" placeholder="Search for available ride offer">
+		    	<button class="btn btn-tap search-u-btn" type="button" id="search">Search</button>
+		    </form>
 			<div class="bar-right">
 				<button class="bar-item btn btn-non ds msg">Messages</button>
 				<a class="ds" id="dropdown-toggle">
-					<img id="userpic"src="images/mails.png">
+					<img id="userpic" src="images/mails.png">
 				</a>
 				<div class="dropdown" id="dropdown">
 					<ul>
 						<li class="dropdown-item" id="user"></li>
-						<li class="dropdown-item"><a id="myprofile" href="passenger-dashboard.html">My Profile</a></li>
+						<li class="dropdown-item"><a id="myprofile" href="">My Profile</a></li>
 						<li class="dropdown-item"><a href="profile.html">Settings</a></li>
 						<hr>
 						<li class="dropdown-item"><a id="logout" href="">Logout</a></li>
@@ -38,7 +42,7 @@
 				<div class="horizon-box">
 					<div class="horizon-box-h">
 						<h2 class="topic">Ride Offer</h2> 
-						<button class="btn btn-tap attached" id="ride-add">+</button>
+						<input class="btn btn-tap attached" id="ride-add" value="+">
 					</div>
 					<div class="horizon-box-content">
 						<div class="ride-offers">
@@ -124,21 +128,133 @@
 							</div>
 
 						</div>
-						<div id="search-bar">
+						<div class="pg-ride">
+							<div id="ride-offer" class="ride-offer">
+							<div class="offer">
+								<div class="offer-details">
+									<h3>Location - Destination</h3>
+									<p>Date: 4/06/2018</p>
+									<p>Time: 4:50pm</p>
+								</div>
+								<div class="offer-response">
+									<button class="btn btn-tap response">Accept</button>
+								</div>
+							</div>
+							<div class="offer">
+								<div class="offer-details">
+									<h3>Location - Destination</h3>
+									<p>Date: 4/06/2018</p>
+									<p>Time: 4:50pm</p>
+								</div>
+								<div class="offer-response">
+									<button class="btn btn-tap response">Accept</button>
+								</div>
+							</div>
+
+						</div>
+						<div id="search-bar" class="search-bar">
+							<div class="offer">
+								<div class="offer-details">
+									<h3>Location - Destination</h3>
+									<p>Date: 4/06/2018</p>
+									<p>Time: 4:50pm</p>
+								</div>
+								<div class="offer-response">
+									<button class="btn btn-tap response">Accept</button>
+								</div>
+							</div>
+							<div class="offer">
+								<div class="offer-details">
+									<h3>Location - Destination</h3>
+									<p>Date: 4/06/2018</p>
+									<p>Time: 4:50pm</p>
+								</div>
+								<div class="offer-response">
+									<button class="btn btn-tap response">Accept</button>
+								</div>
+							</div>
+							<div class="offer">
+								<div class="offer-details">
+									<h3>Location - Destination</h3>
+									<p>Date: 4/06/2018</p>
+									<p>Time: 4:50pm</p>
+								</div>
+								<div class="offer-response">
+									<button class="btn btn-tap response">Accept</button>
+								</div>
+							</div>
+
+						</div>
+						<div id="ride-offer-accept">
+							<div class="offer">
+								<div class="offer-details">
+									<h3>Location - Destination</h3>
+									<p>Date: 4/06/2018</p>
+									<p>Time: 4:50pm</p>
+								</div>
+								<div class="offer-response">
+									<button class="btn btn-tap response">Accepted</button>
+								</div>
+							</div>
+							<div class="offer">
+								<div class="offer-details">
+									<h3>Location - Destination</h3>
+									<p>Date: 4/06/2018</p>
+									<p>Time: 4:50pm</p>
+								</div>
+								<div class="offer-response">
+									<button class="btn btn-tap response">Accepted</button>
+								</div>
+							</div>
+
+						</div>
+						<div id="ride-offer-pending">
+							<div class="offer">
+								<div class="offer-details">
+									<h3>Location - Destination</h3>
+									<p>Date: 4/06/2018</p>
+									<p>Time: 4:50pm</p>
+								</div>
+								<div class="offer-response">
+									<button class="btn btn-tap response">Accept</button>
+								</div>
+							</div>
+							<div class="offer">
+								<div class="offer-details">
+									<h3>Location - Destination</h3>
+									<p>Date: 4/06/2018</p>
+									<p>Time: 4:50pm</p>
+								</div>
+								<div class="offer-response">
+									<button class="btn btn-tap response">Accept</button>
+								</div>
+							</div>
+							<div class="offer">
+								<div class="offer-details">
+									<h3>Location - Destination</h3>
+									<p>Date: 4/06/2018</p>
+									<p>Time: 4:50pm</p>
+								</div>
+								<div class="offer-response">
+									<button class="btn btn-tap response">Accept</button>
+								</div>
+							</div>
+
+						</div>
 						</div>
 					</div>
 				</div>
 				<div class="vertic-box">
 					<div class="gig-profile">
 						<div class="gig-profile-img">
-							<img id="userpic" src="images/mails.png">
+							<img id="pagepic" src="images/mails.png">
 						</div>
 						<div class="gig-profile-p">
-							<p id="user"></p>
+							<p id="pageuser"></p>
 						</div>
 						<p><span class="btn-tap s-badge">34</span> new response(s)</p>
 					</div>
-					<div class="gig">
+					<div class="dr-gig">
 						<div class="ride">
 							<p>Total Ride Offer</p>
 							<button class="btn btn-tap badge">45</button>
@@ -155,9 +271,16 @@
 							<p>Expired Ride Offer</p>
 							<button class="btn btn-tap badge red">45</button>
 						</div>
-						<div></div>
-						<div></div>
-						<div></div>
+					</div>
+					<div class="pg-gig">
+						<div class="ride" type="button" id="accept">
+							<p>Accepted ride Offer</p>
+							<button class="btn btn-tap badge">45</button>
+						</div>
+						<div class="ride" type="button" id="pending">
+							<p>Pending Ride Offer</p>
+							<button class="btn btn-tap badge yellow">45</button>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -174,7 +297,7 @@
 	    <span class="close">&times;</span><br>
 	    <div class="unbox-content-body">
 	    	<p>please fill in all the required info to add a new ride offer.</p>
-	    	<form method="POST" class="add-new" onsubmit="pass();">
+	    	<form method="POST" class="add-new">
 	    		<label>Starting Point:</label>
 	    		<input type="text" class="form-new" name="Location" placeholder="Location">
 	    		<label>Destination :</label>
@@ -183,14 +306,13 @@
 	    		<input type="date" class="form-new" name="date" >
 	    		<label>Time :</label>
 	    		<input type="text" class="form-new" name="time"  placeholder="Example : 4 : 50 pm">
-	    		<button class="btn btn-tap" type="submit">Add</button>
+	    		<button class="btn btn-tap" type="submit" id="create-ride">Add</button>
 	    	</form>
 	    </div>
 	  </div>
 	</div>
 	<script type="text/javascript" src="js/dropdown.js"></script>
 	<script type="text/javascript" src="js/get.js"></script>
-	<script type="text/javascript" src="js/userDetails.js"></script>
-	<script type="text/javascript" src="js/Ddash.js"></script>
+	<script type="text/javascript" src="js/dashboard.js"></script>
 </body>
 </html>

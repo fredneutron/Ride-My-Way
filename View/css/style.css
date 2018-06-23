@@ -20,11 +20,11 @@ input[type=text], input[type=password],input[type=date]{
 	font-weight: 400;
 	font-style: inherit;
 }
-div{
-	display: block;
-}
 body{
 	background: #d5d4d2;
+}
+.dr-e{
+	display: none;
 }
 .ds{
 	color: #555 !important;
@@ -295,6 +295,9 @@ body{
 .search-bar{
 	display: none;
 }
+.search-form{
+	display: none;
+}
 .search-h{
 	text-align: center;
 	font-size: 2em;
@@ -435,10 +438,13 @@ body{
 	font-weight: 400;
 	font-size: 1.1em;
 }
-.gig{
+.pg-gig,.dr-gig{
 	padding: 5px 10px;
 	width: 90%;
-	display: block;
+	display: none;
+}
+.pg-ride{
+	display: none;
 }
 .ride{
 	width: 90%;
@@ -456,6 +462,9 @@ body{
 	width: 100%;
 	margin-top: 20px;
 	margin-left: 10px; 
+}
+.ride-offers{
+	display: none;
 }
 .ride-offer,.ride-offer{
 	width: 100%;

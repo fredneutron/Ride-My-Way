@@ -14,7 +14,7 @@ user.get('/getusers/:id', (req,res) => {
 	fs.readFile(__dirname+'/../Database/index.json','utf8', (err,data) => {
 		let obj = JSON.parse(data);
 		let user = obj.users[req.params.id];
- 		console.log( user );
+ 		console.log(user);
  		res.end(JSON.stringify(user));
 	});
 });
@@ -50,7 +50,22 @@ user.post('/authusers', (req,res) => {
 });
 //update a user
 user.put('/users/:id', (req,res) => {
-	res.send({type: 'PUT'});
+	fs.readFile(__dirname+'/../Database/index.json','utf8', (err, data) => {
+		if (err){
+        	console.log(err);
+    	} else {
+    		let obj = JSON.parse(data);
+			obj.users[req.params.id] = req.body;
+			console.log("users ="+req.body);
+			let json = JSON.stringify(obj);
+			fs.writeFile(__dirname+'/../Database/index.json', json, 'utf8', err => {
+				if(err) throw err;
+				console.log("file has been saved");
+				console.log(id);
+			});
+			res.send({key : id});
+    	}
+	});
 }); 
 //delete a user
 user.delete('/users/:id', (req,res) => {
