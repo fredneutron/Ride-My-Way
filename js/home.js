@@ -42,7 +42,7 @@ document.getElementById('pass').onchange = () =>{
 document.getElementById('continue').onclick = () =>{
 	if(x){
 		signup.style.display = "none";
-		caution.style.display = "block";
+		drive.style.display = "block";
 	}
 }
 window.onclick = e => {

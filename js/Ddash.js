@@ -1,5 +1,22 @@
+let rideOfferAc = document.getElementById('ride-offer-accept');
+let rideAv = document.getElementById('ride-o');
+let search1 = document.getElementById('search-bar');
 let add = document.getElementById('add');
-let offer = document.getElementById('offer123')
+
+document.getElementById('accept').onclick = () =>{
+	rideOfferAc.style.display = "block";
+	search1.style.display = "none";
+	rideOfferPd.style.display = "none";
+	rideAv.style.display = "none";
+	topic.innerHTML = "Total Ride Taken";
+
+}
+document.getElementById('search').onclick = () =>{
+	search1.style.display = "block";
+	rideAv.style.display = "none";
+	rideOfferAc.style.display ="none";
+	topic.innerHTML = "Search Result";
+}
 document.getElementById('ride-add').onclick = () =>{
 	add.style.display = "block";
 }

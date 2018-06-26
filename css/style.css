@@ -31,34 +31,48 @@ body{
 	color: #555 !important;
 }
 .dropdown{
-	background: #fff;
 	right: 42px;
-	top: 70%;
 	display: none;
+}
+.notification{
+	right: 7%;
+	display: none;
+	top: 80%;
+	width: 22%;
+}
+.notification>ul p {
+	word-wrap: break-word;
+	word-break: break-all;
+	overflow-wrap: break-word;
+}
+.notification, .dropdown{
+	background: #fff;
 	z-index: 10;
 	position: absolute;
-	/*visibility: hidden;*/
-	opacity: 100;
+	opacity: 100%;
 	transition: all .2s linear;
 	border-radius: 0 0 3px 3px;
     -webkit-transition: all .2s linear;
 	border: 1px #ddd solid;
     box-shadow: 0 0 5px 1px rgba(0,0,0,.05);
 }
-.dropdown>ul{
+.dropdown>ul , .notification>ul{
 	min-width: 100px;
 	padding: 0 15px;
+	word-wrap: break-word;
+	word-break: break-all;
+	overflow-wrap: break-word;
 }
-.dropdown>ul li{
-	white-space: nowrap;
-    padding: 2px 0;
-    text-align: left;
-    font-family: 'Roboto', sans-serif;
-    font-size: 14px;
-    position: relative;
-    color: #555;
+.dropdown>ul p, .notification>ul p{
+	/* white-space: nowrap; */
+  padding: 2px 0;
+  text-align: left;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  position: relative;
+  color: #555;
 }
-#dropdown-toggle,.dropdown-item,.notify,.toggle-bar,.unbox-content-foot>p>a{
+#dropdown-toggle,.dropdown-item,#notify,.notify,.toggle-bar,.unbox-content-foot>p>a{
 	cursor: pointer;
 }
 .toggle-bar{
@@ -263,9 +277,13 @@ body{
 	padding: 6% 0;
 	font-size: 160%;
 }
+.clearfix{
+	clear: both;
+	height: 60px;
+}
 .form{
 	margin: 0 auto;
-	width: 100%
+	width: 100%;
 	display: block;
 	padding: 10px 0;
 	font-style: inherit;
