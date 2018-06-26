@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ride My Way | Home</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+	<section class="head">
+		<div class="top bar">
+			<a class="bar-item title" href="#">Ride My Way</a>
+			<div class="bar-right">
+				<button class="bar-item btn btn-non" id="signin">Sign In</button>
+				<button class="bar-item btn btn-open" id="signup">Sign Up</button>
+			</div>
+		</div>
+		<!-- Header -->
+		<header class="">
+		  <img class="image" src="images/page1.jpg" alt="Hamburger Catering" width="100%" height="600">
+		  <div class="head-text">
+		    <h1 class="head-text-h">Get There Fast And Cheap</h1>
+		    <form method="post">
+		    	<input type="text" name="" id="search-box" placeholder="Search for available ride offer">
+		    	<button class="btn btn-tap" type="button" id="search">Search</button>
+		    </form>
+		  </div>
+		</header>
+	</section>
+	<section class="body">
+		<div id="search-bar" class="search">
+			<h2 class="search-h">Search Result</h2>
+			<div class="search-result">
+				<div class="result">
+					<table>
+						<tr>
+							<td class="result-h"><img class="result-img" src="images/mails.png"></td>
+							<td class="result-content">
+								<h3>deserunt laborum</h3>
+								<p>Date: 24/06/2018</p>
+								<p>Time: 4:50pm</p>
+								<p>Location - Destination</p>
+							</td>
+							<td class="result-btn">
+								<button class="btn btn-tap">Accept</button>
+							</td>
+						</tr>
+					</table>
+				</div>
+				<div class="result">
+					<table>
+						<tr>
+							<td class="result-h"><img class="result-img" src="images/mails.png"></td>
+							<td class="result-content">
+								<h3>deserunt laborum</h3>
+								<p>Date: 24/06/2018</p>
+								<p>Time: 4:50pm</p>
+								<p>Location - Destination</p>
+							</td>
+							<td class="result-btn">
+								<button class="btn btn-tap">Accept</button>
+							</td>
+						</tr>
+					</table>
+				</div>
+				<div class="result">
+					<table>
+						<tr>
+							<td class="result-h"><img class="result-img" src="images/mails.png"></td>
+							<td class="result-content">
+								<h3>deserunt laborum</h3>
+								<p>Date: 24/06/2018</p>
+								<p>Time: 4:50pm</p>
+								<p>Location - Destination</p>
+							</td>
+							<td class="result-btn">
+								<button class="btn btn-tap">Accept</button>
+							</td>
+						</tr>
+					</table>
+				</div>
+				<button class="btn btn-tap" type="button">Load More</button>
+			</div>
+		</div>
+		<div class="body-plate center">
+			<h2 class="body-plate-h">Avaliable Ride Offer</h2>
+			<p>All around the world</p>
+		</div>
+		<div class="body-dish">
+			<ul>
+				<li>Europe</li>
+				<li>Africa</li>
+				<li>Asia</li>
+				<li>North America</li>
+				<li>South America</li>
+				<li>Australia</li>
+				<li>Antarctica</li>
+			</ul>
+		</div>
+		<header class="body-map">
+			<img src="images/world-map.png" width="100%">
+		</header>
+	</section>
+	<section class="foot">
+		<div class="foot-bag center">
+			<p><a href="">Privacy Policy</a> | <a href="">Terms of Service</a> | <a href=""> About </a> <br>© Ride My Way lnc. 2018</p>
+		</div>
+	</section>
+	<!-- Unbox --> 
+	<div id="on" class="unbox">
+  		<!-- Unbox content -->
+	  <div class="unbox-content">
+	    <span class="close">&times;</span><br>
+	    <div class="unbox-content-body">
+	    	<h2>RMW</h2>
+	    	<form action="dashboard.html" class="add-new">
+	    		<input type="text" class="form-new" name="" placeholder="Email/ Username">
+	    		<input type="password" class="form-new" name=""  placeholder="Password">
+	    		<button class="btn btn-tap" onclick="redirect('passenger-dashboard.html');">Signin</button><br>
+	    		<input  type="checkbox" name="">
+	    		<span>Remember Me?</span>
+	    		<a href="">Forgot Password</a>
+	    	</form>
+	    </div>
+	    <div class="unbox-content-foot">
+	    	<p>Not a member yet? <a id="signup1"> Join now</a></p>
+	    </div>
+	  </div>
+	</div>
+	<div id="switch" class="unbox">
+  		<!-- Unbox content -->
+	  <div class="unbox-content">
+	    <span class="close">&times;</span><br>
+	    <div class="unbox-content-body">
+	    	<h2>RMW</h2>
+	    	<form action="passenger-dashboard.html" class="add-new">
+	    		<p class="headup">You are</p>
+	    		<p>a</p>
+	    		<br>
+	    		<button class="btn btn-tap" id="drive" type="button">Driver</button>Or
+	    		<hr>
+	    		<button class="btn btn-tap" type="button" onclick="redirect('passenger-dashboard.html');">Passenger</button>
+	    	</form>
+	    </div>
+	  </div>
+	</div>
+	<div id="off" class="unbox">
+  		<!-- Unbox content -->
+	  <div class="unbox-content">
+	    <span class="close">&times;</span><br>
+	    <div class="unbox-content-body">
+	    	<h2>RMW</h2>
+	    	<form class="add-new">
+	    		<input type="text" class="form-new" name="" placeholder="First Name" required="">
+	    		<input type="text" class="form-new" name="" placeholder="Last Name" required="">
+	    		<input type="email" class="form-new" name="" placeholder="Email Address" required="">
+	    		<input type="radio"  name="gender" value="Male" required="">Male
+	    		<input type="radio"  name="gender" value="Female" required="">Female
+	    		<input type="date" class="form-new" name="" required="">
+	    		<input type="password" class="form-new" id="pass"  placeholder="Password" required="">
+	    		<p id="error"></p>
+	    		<input type="password" class="form-new" id="confirm"  placeholder="Confirm Password" required="">
+	    		<button class="btn btn-tap" type="button" id="continue">Sign Up</button><br>
+	    		<span>By joining I agree to receive emails from Ride My Way.</span>
+	    	</form>
+	    </div>
+	    <div class="unbox-content-foot">
+	    	<p>Already a member? <a  id="signin1"> Sign In</a></p>
+	    </div>
+	    <div id="test"></div>
+	  </div>
+	</div>
+	<div id="drive-info" class="unbox">
+  		<!-- Unbox content -->
+	  <div class="unbox-content">
+	    <span class="close">&times;</span><br>
+	    <div class="unbox-content-body">
+	    	<h2>RMW</h2>
+	    	<form action="dashboard.html" class="add-new">
+	    		<p>please upload of picture of your driver's license.</p>
+	    		<label>Driver License :</label>l
+	    		<input type="file" class="form-new" name="" required="">
+	    		<label>Vehicle Registration Number :</label>
+	    		<input type="text" class="form-new" name="" placeholder="Vehicle Registration Number :" required="">
+	    		<button class="btn btn-tap" onclick="redirect('dashboard.html');" type="button">Continue</button>
+	    	</form>
+	    </div>
+	    <div id="test"></div>
+	  </div>
+	</div>
+	<script type="text/javascript" src="js/home.js"></script>
+</body>
+</html>
