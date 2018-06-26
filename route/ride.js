@@ -1,52 +1,16 @@
 import express from 'express';
-import fs from 'fs';
-import path from 'path';
+import RideController from '../controllers/rides';
 
 const ride = express.Router();
 // get the list of ride
-ride.get('/rides', (req, res) => {
-  fs.readFile(path.join(__dirname, '/../Database/index.json'), 'utf8', (data) => {
-    const obj = JSON.parse(data);
-    res.json(obj.rides);
-  });
-});
-ride.get('/rides/:id', (req, res) => {
-  fs.readFile(path.join(__dirname, '/../Database/index.json'), 'utf8', (data) => {
-    const obj = JSON.parse(data);
-    res.json(JSON.stringify(obj.rides[req.params.id]));
-  });
-});
-//
+ride.get('/rides', RideController.get_all_rides);
+ride.get('/rides/:id', RideController.get_ride_detail);
+
 // add a ride
-ride.post('/rides', (req, res) => {
-  fs.readFile(path.join(__dirname, '/../Database/index.json'), 'utf8', (err, data) => {
-    if (err) {
-      console.log(err);
-    } else {
-      const obj = JSON.parse(data);
-      const id = Object.keys(obj.rides).length + 1;
-      obj.ride[req.body.id].ride[id] = {
-        location: req.body.location,
-        destination: req.body.destination,
-        date: req.body.date,
-        time: req.body.time,
-      };
-      const json = JSON.stringify(obj);
-      fs.writeFile(path.join(__dirname, '/../Database/index.json'), json, 'utf8', (er) => {
-        if (er) throw er;
-      });
-      res.json({ key: id });
-    }
-  });
-});
+ride.post('/rides', RideController.add_ride);
 // update a ride
-ride.put('/rides/:id', (req, res) => {
-  res.send({ type: 'PUT' });
-});
+ride.put('/rides/:id', RideController.edit_ride_detail);
 // delete a ride
-ride.delete('/rides/:id', (req, res) => {
-  console.log(req.params.id);
-  res.json({ type: 'DELETE' });
-});
+ride.delete('/rides/:id', RideController.delete_ride);
 
 export default ride;

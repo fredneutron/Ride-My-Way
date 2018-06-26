@@ -6,6 +6,8 @@ const app = express();
 //  connecting Middleware
 Middleware(app);
 //  add listen port for server
-app.listen(process.env.PORT || 4000, () => {
+app.listen(process.env.PORT || 2000, () => {
 
 });
+
+export default app;
