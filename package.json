@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "eslint index.js",
     "start": "babel-node index.js --presets env",
-    "test": "mocha --compilers js:babel-core/register ./test/ '*.test.js'   --recursive"
+    "test": "mocha ./test/ --recursive --compilers js:babel-register --exit"
   },
   "keywords": [],
   "author": "Babatunde Adelabu",
