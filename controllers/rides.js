@@ -1,47 +1,72 @@
-import fs from 'fs';
-import path from 'path';
+import DB from './helper/dbconnect';
 
-exports.get_all_rides = (req, res) => {
-  fs.readFile(path.join(__dirname, '/../Database/index.json'), 'utf8', (data) => {
-    const obj = JSON.parse(data);
-    res.status(200).json(obj.rides);
-  });
+exports.getAllRides = (req, res) => {
+  if (!DB.connect()) {
+    DB.connect((err) => {
+      if (err) {
+        console.log('connection error:', err.stack);
+      } else {
+        console.log('connected');
+      }
+    });
+  }
+  DB.query('SELECT * FROM ride')
+    .then(result => res.status(200).json(result.rows))
+    .catch(err => console.error(err.stack))
+    .then(() => DB.end());
+};
+exports.getRideSearch = (req, res) => {
+  if (!DB.connect()) {
+    DB.connect((err) => {
+      if (err) {
+        console.log('connection error:', err.stack);
+      } else {
+        console.log('connected');
+      }
+    });
+  }
+  DB.query('SELECT * FROM rides WHERE ride_location = $1 AND ride_destination = $2', [req.body.location, req.body.destination])
+    .then(result => res.status(200).json(result.rows))
+    .catch(err => console.error(err.stack))
+    .then(() => DB.end());
+};
+exports.getRideDetail = (req, res) => {
+  if (!DB.connect()) {
+    DB.connect((err) => {
+      if (err) {
+        console.log('connection error:', err.stack);
+      } else {
+        console.log('connected');
+      }
+    });
+  }
+  DB.query('SELECT * FROM rides WHERE ride_owner_id = $1', [req.params.id])
+    .then(result => res.status(200).json(result.rows))
+    .catch(err => console.error(err.stack))
+    .then(() => DB.end());
 };
 
-exports.get_ride_detail = (req, res) => {
-  fs.readFile(path.join(__dirname, '/../Database/index.json'), 'utf8', (data) => {
-    const obj = JSON.parse(data);
-    res.json(JSON.stringify(obj.rides[req.params.id]));
-  });
+exports.addRide = (req, res) => {
+  if (!DB.connect()) {
+    DB.connect((err) => {
+      if (err) {
+        console.log('connection error:', err.stack);
+      } else {
+        console.log('connected');
+      }
+    });
+  }
+  DB.query('INSERT INTO rides(ride_location,ride_destination,ride_date,ride_time,ride_prize,ride_owner_id) VALUES($1,$2,$3,$4,$5,$6)', [req.body.location, req.body.destination, req.body.date, req.body.time, req.body.prize, req.body.id])
+    .then(result => res.status(200).json(result.rowCount))
+    .catch(err => console.error(err.stack))
+    .then(() => DB.end());
 };
 
-exports.add_ride = (req, res) => {
-  fs.readFile(path.join(__dirname, '/../Database/index.json'), 'utf8', (err, data) => {
-    if (err) {
-      console.log(err);
-    } else {
-      const obj = JSON.parse(data);
-      const id = Object.keys(obj.rides).length + 1;
-      obj.ride[req.body.id].ride[id] = {
-        location: req.body.location,
-        destination: req.body.destination,
-        date: req.body.date,
-        time: req.body.time,
-      };
-      const json = JSON.stringify(obj);
-      fs.writeFile(path.join(__dirname, '/../Database/index.json'), json, 'utf8', (er) => {
-        if (er) throw er;
-      });
-      res.json({ key: id });
-    }
-  });
-};
-
-exports.edit_ride_detail = (req, res) => {
+exports.editRideDetail = (req, res) => {
   res.send({ type: 'PUT' });
 };
 
-exports.delete_ride = (req, res) => {
+exports.deleteRide = (req, res) => {
   console.log(req.params.id);
   res.json({ type: 'DELETE' });
 };

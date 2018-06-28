@@ -1,70 +1,134 @@
-import fs from 'fs';
-import path from 'path';
-import userValidate from './helper/userValidate';
+import bcrypt from 'bcrypt';
+import DB from './helper/dbconnect';
 
-exports.get_all_users = (req, res) => {
-  fs.readFile(path.join(__dirname, '/../Database/index.json'), 'utf8', (err, data) => {
-    const obj = JSON.parse(data);
-    return res.status(200).json(obj.users);
+export function homepage(req, res) {
+  res.status(200).json({
+    message: 'Welcome',
   });
-};
-
-exports.get_user = (req, res) => {
-  fs.readFile(path.join(__dirname, '/../Database/index.json'), 'utf8', (err, data) => {
-    const obj = JSON.parse(data);
-    return res.status(200).json(JSON.stringify(obj.users[req.params.id]));
-  });
-};
-
-exports.add_new_user = (req, res) => {
-  fs.readFile(path.join(__dirname, '/../Database/index.json'), 'utf8', (err, data) => {
-    if (err) {
-      console.log(err);
-    } else {
-      const obj = JSON.parse(data);
-      const id = Object.keys(obj.users).length + 1;
-      obj.users[id] = req.body;
-      const json = JSON.stringify(obj);
-      fs.writeFile(path.join(__dirname, '/../Database/index.json'), json, 'utf8', (er) => {
-        if (er) throw er;
-      });
-      return res.status(200).json({ key: id });
-    }
-  });
-};
-
-exports.authuser = (req, res) => {
-  fs.readFile(path.join(__dirname, '/../Database/index.json'), 'utf8', (err, data) => {
-    const obj = JSON.parse(data);
-    const n = userValidate(obj.users, req.body.user, req.body.pass);
-    res.status(404).json({
-      key: n,
+}
+export function getAllUsers(req, res) {
+  if (!DB.connect()) {
+    DB.connect((err) => {
+      if (err) {
+        console.log('connection error:', err.stack);
+      } else {
+        console.log('connected');
+      }
     });
-  });
-};
+  }
+  DB.query('SELECT * FROM users')
+    .then(result => res.status(200).json(result.rows))
+    .catch(err => console.error(err.stack))
+    .then(() => DB.end());
+}
 
-exports.edit_user_info = (req, res) => {
-  fs.readFile(path.join(__dirname, '/../Database/index.json'), 'utf8', (err, data) => {
-    if (err) {
-      console.log(err);
-    } else {
-      const obj = JSON.parse(data);
-      obj.users[req.params.id] = req.body;
-      const json = JSON.stringify(obj);
-      fs.writeFile(path.join(__dirname, '/../Database/index.json'), json, 'utf8', (er) => {
-        if (er) throw er;
+export function getUser(req, res) {
+  if (!DB.connect()) {
+    DB.connect((err) => {
+      if (err) {
+        console.log('connection error:', err.stack);
+      } else {
+        console.log('connected');
+      }
+    });
+  }
+  DB.query('SELECT * FROM users WHERE id = $1', [req.params.id])
+    .then(result => res.status(200).json(result.rows))
+    .catch(err => console.error(err.stack))
+    .then(() => DB.end());
+}
+
+export function addNewUser(req, res) {
+  if (!DB.connect()) {
+    DB.connect((er) => {
+      if (er) {
+        console.log('connection error:', er.stack);
+      } else {
+        console.log('connected');
+      }
+    });
+  }
+  DB.query('SELECT * FROM users WHERE user_email = $1', [req.body.email])
+    .then((result) => {
+      if (result.rowCount < 1) {
+        return res.status(409).json({
+          message: 'please login into your account',
+        });
+      }
+      bcrypt.hash(req.body.password, 10, (err, hash) => {
+        if (err) {
+          res.status(500).json(err);
+        } else {
+          DB.query('INSERT into users(user_first_name,user_last_name,user_dob,user_gender,user_picture,user_email,user_password,user_vehicle_type,user_vehicle_model,user_dr_ln,user_vrn) VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11)', [req.body.firstname, req.body.lastname, req.body.dob, req.body.gender, req.body.picture, req.body.email, hash, req.body.vehicleType, req.body.vehicleModel, req.body.driverLn, req.body.VRN])
+            .then(resu => res.status(200).json(resu.rowCount))
+            .catch(er => console.error(er.stack))
+            .then(() => DB.end());
+        }
       });
-      return res.status(200).json({ key: req.params.id });
-    }
-  });
-};
-exports.delete_user = (req, res) => {
-  fs.readFile(path.join(__dirname, '/../Database/index.json'), 'utf8', (err, data) => {
-    const obj = JSON.parse(data);
-    if (obj.users[req.params.id]) {
-      return res.status(200).json({
-        key: req.params.id,
+    })
+    .catch(err => console.error(err.stack))
+    .then(() => DB.end());
+}
+
+export function authUser(req, res) {
+  if (!DB.connect()) {
+    DB.connect((err) => {
+      if (err) {
+        console.log('connection error:', err.stack);
+      } else {
+        console.log('connected');
+      }
+    });
+  }
+  DB.query('SELECT user_password FROM users WHERE user_email = $1', [req.body.email])
+    .then((result) => {
+      if (result.rowCount < 1) {
+        return res.status(401).json({
+          message: 'Auth failed',
+        });
+      }
+      bcrypt.compare(req.body.password, result.rows, (e, r) => {
+        if (e) {
+          return res.status(401).json({
+            message: 'Auth failed',
+          });
+        }
+        if (r) {
+          return res.status(200).json(result.rowCount);
+        }
       });
-    }
-  });
-};
+    })
+    .catch(err => console.error(err.stack))
+    .then(() => DB.end());
+}
+
+export function editUserInfo(req, res) {
+  // if (!DB.connect()) {
+  //   DB.connect((err) => {
+  //     if (err) {
+  //       console.log('connection error:', err.stack);
+  //     } else {
+  //       console.log('connected');
+  //     }
+  //   });
+  // }
+  // DB.query('UPDATE users WHERE id = $1 SET user_first_name = $2 , [req.body.email, req.body.password])
+  //   .then(result => res.status(200).json(result.rows))
+  //   .catch(err => console.error(err.stack))
+  //   .then(() => DB.end());
+}
+export function deleteUser(req, res) {
+  if (!DB.connect()) {
+    DB.connect((err) => {
+      if (err) {
+        console.log('connection error:', err.stack);
+      } else {
+        console.log('connected');
+      }
+    });
+  }
+  DB.query('DELETE * FROM users WHERE id = $1', [req.params.id])
+    .then(result => res.status(200).json(result.rows))
+    .catch(err => console.error(err.stack))
+    .then(() => DB.end());
+}

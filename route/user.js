@@ -1,17 +1,18 @@
 import express from 'express';
-import UsersController from '../controllers/users';
+import { homepage, getAllUsers, getUser, addNewUser, authUser, editUserInfo, deleteUser} from '../controllers/users';
 
 
 const user = express.Router();
 // get the list of user
-user.get('/users', UsersController.get_all_users);
-user.get('/getusers/:id', UsersController.get_user);
+user.get('/', homepage);
+user.get('/users', getAllUsers);
+user.get('/users/:id', getUser);
 // add a user
-user.post('/users', UsersController.add_new_user);
-user.post('/authusers', UsersController.authuser);
+user.post('/users', addNewUser);
+user.post('/authusers', authUser);
 // update a user
-user.put('/users/:id', UsersController.edit_user_info);
+user.put('/users/:id', editUserInfo);
 // delete a user
-user.delete('/users/:id', UsersController.delete_user);
+user.delete('/users/:id', deleteUser);
 
 export default user;

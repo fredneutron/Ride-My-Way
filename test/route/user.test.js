@@ -19,8 +19,8 @@ describe('get all users', () => {
   });
 });
 
-describe('get a user', () => {
-  it('should return one user', (done) => {
+describe('get all driver', () => {
+  it('should return all driver', (done) => {
     request(app.use(driver)).get('/drivers/')
       .set('Accept', 'application/json').expect(200)
       .end((err, res) => {

@@ -1,16 +1,18 @@
 import express from 'express';
-import RideController from '../controllers/rides';
+import { getRideSearch, getAllRides, getRideDetail, addRide, deleteRide, editRideDetail } from '../controllers/rides';
 
 const ride = express.Router();
 // get the list of ride
-ride.get('/rides', RideController.get_all_rides);
-ride.get('/rides/:id', RideController.get_ride_detail);
-
+ride.get('/rides', getAllRides);
+// get rides for a user
+ride.get('/rides/:id', getRideDetail);
 // add a ride
-ride.post('/rides', RideController.add_ride);
+ride.post('/rides', addRide);
+// ride search
+ride.post('/rideSearch', getRideSearch);
 // update a ride
-ride.put('/rides/:id', RideController.edit_ride_detail);
+ride.put('/rides/:id', editRideDetail);
 // delete a ride
-ride.delete('/rides/:id', RideController.delete_ride);
+ride.delete('/rides/:id', deleteRide);
 
 export default ride;
