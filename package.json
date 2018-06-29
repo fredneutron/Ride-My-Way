@@ -2,11 +2,11 @@
   "name": "Ride-My-Way",
   "version": "1.0.0",
   "description": "Ride-my-Way App is a carpooling application that provides drivers with the ability to create ride offers and passengers to join available ride offers.",
-  "main": "index.js",
+  "main": "server/index.js",
   "scripts": {
-    "lint": "eslint index.js",
-    "start": "babel-node index.js --presets env",
-    "test": "mocha ./test/ --recursive --compilers js:babel-register --exit"
+    "lint": "eslint server/index.js",
+    "start": "babel-node server/index.js --presets env",
+    "test": "mocha ./server/test/ --recursive --compilers js:babel-register --exit"
   },
   "keywords": [],
   "author": "Babatunde Adelabu",
@@ -31,7 +31,9 @@
     "bcrypt": "^2.0.1",
     "body-parser": "^1.18.3",
     "cross-env": "^5.2.0",
+    "dotenv": "^6.0.0",
     "express": "^4.16.3",
+    "jsonwebtoken": "^8.3.0",
     "mongoose": "^5.1.5",
     "pg": "^7.4.3"
   },
