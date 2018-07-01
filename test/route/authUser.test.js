@@ -17,7 +17,7 @@ describe('user login', () => {
       .end((err, res) => {
         expect(res.status).to.equal(401);
         expect(res.body.message).to.be.equal('Auth failed');
-        done();
       });
+    done();
   });
 });
