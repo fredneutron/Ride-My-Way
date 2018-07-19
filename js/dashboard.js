@@ -1,31 +1,26 @@
-let rideOfferAc = document.getElementById('ride-offer-accept');
-let rideAv = document.getElementById('ride-o');
-let search1 = document.getElementById('search-bar');
-let add = document.getElementById('add');
-
-document.getElementById('accept').onclick = () =>{
+let rideOfferAc = get('#ride-offer-accept');
+let rideAv = get('#ride-o');
+let add = get('#add');
+get('#accept').onclick = () =>{
 	rideOfferAc.style.display = "block";
 	search1.style.display = "none";
-	rideOfferPd.style.display = "none";
 	rideAv.style.display = "none";
 	topic.innerHTML = "Total Ride Taken";
-
 }
-document.getElementById('search').onclick = () =>{
-	search1.style.display = "block";
-	rideAv.style.display = "none";
-	rideOfferAc.style.display ="none";
-	topic.innerHTML = "Search Result";
-}
-document.getElementById('ride-add').onclick = () =>{
+// get('#search').onclick = () =>{
+// 	search1.style.display = "block";
+// 	rideAv.style.display = "none";
+// 	rideOfferAc.style.display ="none";
+// 	topic.innerHTML = "Search Result";
+// }
+get('#ride-add').onclick = () =>{
 	add.style.display = "block";
-}
-document.getElementsByClassName('close')[0].onclick = () =>{
-    add.style.display = "none";
 }
 window.onclick = e => {
 	if (e.target == add) {
 		add.style.display = "none";
+	}else if(e.target == searchBox){
+		searchBox.style.display = "none";
 	}
 }
 let toggle = (word,classname) =>{

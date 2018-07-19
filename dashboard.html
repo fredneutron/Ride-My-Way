@@ -5,17 +5,15 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/all.css">
 </head>
 <body>
 	<section class="head">
-		<div class="top bar white">
+		<div class="bar white">
 			<a class="bar-item title ds" href="#">Ride My Way</a>
-			<form method="post" class="bar-item sect">
-		    	<input type="text" class="search-u" name="" id="search-box" placeholder="Search for available ride offer">
-		    	<button class="btn btn-tap search-u-btn" type="button" id="search">Search</button>
-		  </form>
 			<div class="bar-right">
-				<button class="bar-item btn btn-non ds msg" id="noti">Notifications</button>
+				<button class="bar-item btn btn-non ds" id="search"><i class="icon fa fa-search"></i></button>
+				<button class="bar-item btn btn-non ds" id="noti"><i class="icon fa fa-flag"><i class="fa fa-caret-down"></i></i></button>
 				<div class="notification" id = "notify">
 						<ul>
 							<p class="dropdown-item">Kole accepted your ride request</p>
@@ -25,16 +23,14 @@
 							<p class="dropdown-item">chika rejected your ride request</p>
 						</ul>
 					</div>
-				<a href="#dropdown" class="ds" id="dropdown-toggle">
-					<img src="images/mails.png">
-				</a>
+				<button class="bar-item btn btn-non ds" id="dropdown-toggle"><i class="icon fa fa-user" ><i class="fa fa-caret-down"></i></i></button>
 				<div class="dropdown" id="dropdown">
 					<ul>
 						<li class="dropdown-item">Babatunde Adelabu</li>
-						<li class="dropdown-item"><a href="dashboard.html">My Profile</a></li>
-						<li class="dropdown-item"><a href="profile.html">Settings</a></li>
+						<li class="dropdown-item"><a href="dashboard.html"><i class="p-icon fa fa-user-clock"></i>Dashboard</a></li>
+						<li class="dropdown-item"><a href="profile.html"><i class="p-icon fa fa-cog"></i> My Profile</a></li>
 						<hr>
-						<li class="dropdown-item"><a href="index.html">Logout</a></li>
+						<li class="dropdown-item"><i class="p-icon fa fa-sign-out-alt"></i>Logout</li>
 					</ul>
 				</div>
 			</div>
@@ -61,6 +57,8 @@
 										<h3>Lorem ipsum - Duis aute</h3>
 										<p>Date: 4/06/2018</p>
 										<p>Time: 4:50pm</p>
+										<p>Seat: 4</p>
+										<p>ride fee: $40</p>
 									</div>
 									<div class="offer-response">
 										<button id="7" class="btn btn-tap offer-response-b">v</button>
@@ -101,6 +99,8 @@
 										<h3>Location - Destination</h3>
 										<p>Date: 4/06/2018</p>
 										<p>Time: 4:50pm</p>
+										<p>Seat: 4</p>
+										<p>ride fee: $40</p>
 									</div>
 									<div class="offer-response">
 										<button id="2" class="btn btn-tap offer-response-b">v</button>
@@ -143,6 +143,8 @@
 										<h3>Location - Destination</h3>
 										<p>Date: 4/06/2018</p>
 										<p>Time: 4:50pm</p>
+										<p>Seat: 4</p>
+										<p>ride fee: $40</p>
 									</div>
 									<div class="offer-response">
 										<button class="btn btn-tap response">Accept</button>
@@ -153,6 +155,8 @@
 										<h3>Location - Destination</h3>
 										<p>Date: 4/06/2018</p>
 										<p>Time: 4:50pm</p>
+										<p>Seat: 4</p>
+										<p>ride fee: $40</p>
 									</div>
 									<div class="offer-response">
 										<button class="btn btn-tap response">Accept</button>
@@ -163,6 +167,8 @@
 										<h3>Location - Destination</h3>
 										<p>Date: 4/06/2018</p>
 										<p>Time: 4:50pm</p>
+										<p>Seat: 4</p>
+										<p>ride fee: $40</p>
 									</div>
 									<div class="offer-response">
 										<button class="btn btn-tap response">Accept</button>
@@ -176,6 +182,8 @@
 											<h3>Location - Destination</h3>
 											<p>Date: 4/06/2018</p>
 											<p>Time: 4:50pm</p>
+											<p>Seat: 4</p>
+										<p>ride fee: $40</p>
 										</div>
 										<div class="offer-response">
 											<button class="btn btn-tap response">Accepted</button>
@@ -186,6 +194,8 @@
 											<h3>Location - Destination</h3>
 											<p>Date: 4/06/2018</p>
 											<p>Time: 4:50pm</p>
+											<p>Seat: 4</p>
+										<p>ride fee: $40</p>
 										</div>
 										<div class="offer-response">
 											<button class="btn btn-tap response">Accepted</button>
@@ -227,11 +237,11 @@
 		</div>
 	</section>
 	<div class="clearfix"></div>
-	<section class="foot">
+	<div class="foot">
 		<div class="foot-bag center">
 			<p><a href="">Privacy Policy</a> | <a href="">Terms of Service</a> | <a href=""> About </a> <br>© Ride My Way lnc. 2018</p>
 		</div>
-	</section>
+	</div>
 	<div id="add" class="unbox">
   		<!-- Unbox content -->
 	  <div class="unbox-content">
@@ -246,13 +256,31 @@
 	    		<label>Date :</label>
 	    		<input type="date" class="form-new" name="" >
 	    		<label>Time :</label>
-	    		<input type="text" class="form-new" name=""  placeholder="Time">
+					<input type="time" class="form-new" name=""  placeholder="Time">
+					<label>no of Seats :</label>
+					<input type="text" class="form-new" name="" placeholder="no of Seats">
+					<label>Ride fee($) :</label>
+					<input type="text" class="form-new" name=""	placeholder="Ride fee">
 	    		<button class="btn btn-tap">Add</button>
 	    	</form>
 	    </div>
 	  </div>
 	</div>
+	<div id="search-box" class="unbox">
+  		<!-- Unbox content -->
+	  <div class="unbox-content">
+	    <span class="close">&times;</span><br>
+	    <div class="unbox-content-body">
+	    	<h2>RMW</h2>
+	    	<form action="dashboard.html" class="add-new">
+	    		<input type="text" class="form-new" id="location" placeholder="Location" required>
+	    		<input type="text" class="form-new" id="destination"  placeholder="Destination" required>
+	    		<button class="btn btn-tap" id="search-b">Search</button>
+	    	</form>
+	    </div>
+	  </div>
+	</div>
 	<script type="text/javascript" src="js/dropdown.js"></script>
-	<script type="text/javascript" src="js/Ddash.js"></script>
+	<script type="text/javascript" src="js/dashboard.js"></script>
 </body>
 </html>

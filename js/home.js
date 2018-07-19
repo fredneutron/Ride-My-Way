@@ -1,45 +1,38 @@
-let signin = document.getElementById('on');
-let signup = document.getElementById('off'); 
-let caution = document.getElementById('switch');
-let search = document.getElementById('search-bar');
-let drive = document.getElementById('drive-info');
+let get = name => (document.querySelector(name));
+let signin = get('#on');
+let signup = get('#off');
+let search = get('#search-bar');
+let drive = get('#drive-info');
+let searchBox = get('#search-box');
 let x;
-document.getElementById('drive').onclick =() =>{
-	caution.style.display = "none";
-	drive.style.display = "block";
-}
-document.getElementById('signin1').onclick = () =>{
+get('#signin1').onclick = () =>{
 	signup.style.display = "none";
 	signin.style.display = "block";
 }
-document.getElementById('signup1').onclick = () =>{
+get('#signup1').onclick = () =>{
 	signin.style.display = "none";
 	signup.style.display = "block";
 }
-document.getElementById('search').onclick = () => {
-	let destination = document.getElementById('search-box').value;
-	if(destination !== ""){
+get('#search').onclick = () => {
+	searchBox.style.display = "block";
+	get('#search-b').onclick = () => {
+		let loco = get('location').value;
+		let destination = get('destination').value;
 		search.style.display = "block";
 	}
 }
-document.getElementsByClassName('close')[0].onclick = () =>{
-    signin.style.display = "none";
-}
-document.getElementsByClassName('close')[1].onclick = () =>{
-    signup.style.display = "none";
-}
-document.getElementById('signin').onclick =() =>{
+get('#signin').onclick =() =>{
 	signin.style.display = "block";
 }
-document.getElementById('signup').onclick = () =>{
+get('#signup').onclick = () =>{
 	signup.style.display = "block";
 }
-document.getElementById('pass').onchange = () =>{
-	let pass = document.getElementById('pass').value;
+get('#pass').onchange = () =>{
+	let pass = get('#pass').value;
 	let n = validation(pass);
 	x = (n >= 75)? true : false;
 }
-document.getElementById('continue').onclick = () =>{
+get('#continue').onclick = () =>{
 	if(x){
 		signup.style.display = "none";
 		drive.style.display = "block";
@@ -50,8 +43,10 @@ window.onclick = e => {
 		signin.style.display = "none";
 	}else if(e.target == signup){
 		signup.style.display = "none";
-	}else if(e.target == caution){
-		caution.style.display = "none";
+	}else if(e.target == drive){
+		drive.style.display = "none";
+	}else if(e.target == searchBox){
+		searchBox.style.display = "none";
 	}
 }
 let validation = (word) =>{
@@ -62,23 +57,35 @@ let validation = (word) =>{
 		n = word.match(/[0-9]/g)? n+=25 : n+=0;
 		n = word.match(/[$@#&!]/g)? n+=25 : n+=0;
 		if (n == 25) {
-			document.getElementById('error').innerHTML = "password is poor";
-			document.getElementById('pass').value = "";
+			get('#error').innerHTML = "password is poor";
+			get('#pass').value = "";
 		}else if (n == 50) {
-			document.getElementById('error').innerHTML = "password is fair!";
-			document.getElementById('pass').value = "";
+			get('#error').innerHTML = "password is fair!";
+			get('#pass').value = "";
 		}else if (n == 75) {
-			document.getElementById('error').innerHTML = "password is good!";
+			get('#error').innerHTML = "password is good!";
 		}else if (n == 100) {
-			document.getElementById('error').innerHTML = "password is strong!"
+			get('#error').innerHTML = "password is strong!"
 		}
 		return n;
 	}else if(word.length < 6){
-		document.getElementById('error').innerHTML = "Minimum password length is 6";
+		get('#error').innerHTML = "Minimum password length is 6";
 	}else{
-		document.getElementById('error').innerHTML = "Maximum password length is 12";
+		get('#error').innerHTML = "Maximum password length is 12";
 	}
 }
-let redirect = (url) =>{
-	window.location.href = url;
+
+let closeModel = () => {
+	let n = document.getElementsByClassName('close');
+	for(i = 0; i < n.length; i += 1){
+		if(n[i]){
+			n[i].onclick = () => {
+				signin.style.display = "none";
+				signup.style.display = "none";
+				drive.style.display = "none";
+				searchBox.style.display = "none";
+			}
+		}
+	}
 }
+closeModel();

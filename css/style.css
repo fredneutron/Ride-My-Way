@@ -9,10 +9,16 @@ a{
 ul{
 	list-style-type: none;
 }
+html{
+	min-height: 100%;
+}
 hr{
 	background: #555;
 }
-input[type=text], input[type=password],input[type=date]{
+input[type=text], input[type=email], input[type=password], input[type=date], input[type=search],select{
+	outline: none;
+}
+input[type=text], input[type=email], input[type=password], input[type=date], input[type=search]{
 	padding: 1%;
 	width: 50%;
 	font-size: 80%;
@@ -25,20 +31,29 @@ div{
 	display: block;
 }
 body{
+	margin: 0;
 	background: #d5d4d2;
+	width: 100%;
+}
+.icon{
+	font-size: 1.5em;
+	padding: 0px 4px;
+}
+.p-icon{
+	padding: 2px 5px 2px 0px;
 }
 .ds{
 	color: #555 !important;
 }
 .dropdown{
-	right: 42px;
+	right: 3.2%;
+	top: 85%;
 	display: none;
 }
 .notification{
 	right: 7%;
 	display: none;
-	top: 80%;
-	width: 22%;
+	top: 85%;
 }
 .notification>ul p {
 	word-wrap: break-word;
@@ -47,14 +62,13 @@ body{
 }
 .notification, .dropdown{
 	background: #fff;
+	color: #555;
 	z-index: 10;
 	position: absolute;
-	opacity: 100%;
-	transition: all .2s linear;
 	border-radius: 0 0 3px 3px;
-    -webkit-transition: all .2s linear;
+  -webkit-transition: all .2s linear;
 	border: 1px #ddd solid;
-    box-shadow: 0 0 5px 1px rgba(0,0,0,.05);
+  box-shadow: 0 0 5px 1px rgba(0,0,0,.05);
 }
 .dropdown>ul , .notification>ul{
 	min-width: 100px;
@@ -74,6 +88,15 @@ body{
 }
 #dropdown-toggle,.dropdown-item,#notify,.notify,.toggle-bar,.unbox-content-foot>p>a{
 	cursor: pointer;
+}
+#acct{
+	background: #5bc0de;
+}
+#acct, #secu{
+	margin-right: 10%;
+}
+.dropdown-item>a{
+	color: #555;
 }
 .toggle-bar{
 	padding: 3px 0px;
@@ -97,9 +120,13 @@ body{
 }
 .btn-non{
 	border: 0;
+	outline: none;
 }
-.btn-open{
+.btn-open,.btn-search{
 	border: solid 2px;
+}
+.btn-search{
+	padding: 10px 30px;
 }
 .btn-tap{
 	background-color: #00b22d;
@@ -112,31 +139,11 @@ body{
 	margin: 0;
 	color: #fff;
 }
-.top{
-	position: fixed;
-    width: 100%;
-    z-index: 1;
-    left: 0;
-    top: 0;
-}
 .sect{
 	margin-left: -18%;
 }
 .sect input[type=text]{
 	font-size: 110%;
-}
-.title{
-	font-weight: bold;
-	font-size: 160%;
-	color: #000;
-	width: 30% !important;
-	padding: 3% 4% !important;
-}
-.bar{
-	width: 100%;
-	display: block;
-	color: #000!important;
-	padding: 0.3% 0 5% 0 !important;
 }
 .box{
 	width: 100%;
@@ -146,25 +153,25 @@ body{
     font-size: 25px;
 }
 .unbox{
-	display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+	display: none;
+  position: fixed; 
+  z-index: 1; 
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 .unbox-content {
 	border-radius: 5px !important;
 	box-shadow: 0 0 8px rgba(0,0,0,0.4);
-    background-color: #fefefe;
-    margin: 10% auto; /* 15% from the top and centered */
-    padding: 2%;
-    border: 1px solid #888;
-    width: 60%; /* Could be more or less, depending on screen size */
+  background-color: #fefefe;
+  margin: 10% auto; /* 15% from the top and centered */
+  padding: 2%;
+  border: 1px solid #888;
+  width: 60%; /* Could be more or less, depending on screen size */
 }
 .unbox-content-body{
 	width: 100%;
@@ -198,23 +205,40 @@ body{
     text-decoration: none;
     cursor: pointer;
 }
+.title{
+	font-weight: bold;
+	font-size: 160%;
+	color: #000;
+	padding: 2% 4% !important;
+	margin-right: 67%;
+}
+.bar{
+	float: left;
+	color: #000!important;
+	width: 100%;
+	position: fixed;
+	height: 82px;
+	z-index: 1;
+	left: 0;
+	right: 0;
+	margin: 0%;
+}
 .bar-right{
-	float: right !important;
-	list-style-type: none;
-	display: block;
-	margin-right: 0%;
-	width: 14%;
-	margin-top: 3%;
+	width: 12%;
+	margin: 2.5% 0%;
+	float: left;
 }
 .bar-item{
 	display: block;
 	font-family: 'Roboto', sans-serif;
 	float: left;
 	width: auto;
-	padding: 3% 5%;
-	color: #fff ;
-	margin-right: 0%;
-	word-wrap: nowrap;
+	padding: 3% 4%;
+	color: #fff;
+}
+.head{
+	overflow: hidden;
+	width: 100%;
 }
 .head-text{
 	display: block;
@@ -223,7 +247,7 @@ body{
 	left: 15%;
 	right: 15%;
 	z-index: 1;
-	bottom: 32%;
+	bottom: 30%;
 	padding-top: 20px;
 	width:70%;
 	padding-bottom: 20px;
@@ -279,7 +303,7 @@ body{
 }
 .clearfix{
 	clear: both;
-	height: 60px;
+	height: 100px;
 }
 .form{
 	margin: 0 auto;
@@ -297,6 +321,9 @@ body{
 	text-align: center !important;
 	margin-bottom: 15px; 
 	font-size: 1.3em;
+}
+.form-new:active,.form-new:hover,.form-new:focus{
+	border-bottom: 2px solid #007bff !important;
 }
 .form .btn-tap{
 	padding: 15px 0%;
@@ -390,7 +417,6 @@ body{
 }
 .white{
 	background: #fff !important;
-	height: 30px !important;
 }
 .dashboard{
 	margin-top: 90px;
@@ -398,10 +424,13 @@ body{
 }
 .dashboard-h{
 	font-size: 1.6em;
+	color: #555;
+	margin-left: 2%;
 }
 .dashboard-content{
 	margin-top: 0;
 	width: 100%;
+	float: left;
 }
 .horizon-box{
 	display: block;
@@ -416,10 +445,11 @@ body{
 	margin: 0;
 }
 .vertic-box{
-	float: right;
+	float: left;
 	display: block;
 	background: #fff;
 	width: 30%;
+	margin-left: 5%;
 }
 .topic{
 	width: auto;
@@ -475,11 +505,10 @@ body{
 	cursor: pointer;
 }
 .horizon-box-content{
-	width: 100%;
 	margin-top: 20px;
 	margin-left: 10px; 
 }
-.ride-offer,.ride-offer{
+.ride-offer,.horizon-box-content,.ride-offer{
 	width: 100%;
 }
 #ride-offer-accept,#ride-offer-pending{
@@ -490,7 +519,7 @@ body{
 	background: #fff;
 	padding: 5px 10px;
 	margin: 5px 0;
-	height: 80px;
+	height: 125px;
 	border-bottom: 2px solid #00b22d;
 }
 .offer-details{
@@ -581,6 +610,60 @@ body{
 	text-align: left !important;
 	font-size: 12px !important;
 }
+.body-content{
+	background: #fff;
+	padding: 20px 0;
+}
+.work,.work-body-center>.work-body-content,.work-body-center{
+	margin: 0 auto;
+}
+.work,.work-body-center{
+	left: 5%;
+	right: 5%;
+	width: 90%;
+}
+.clear{
+	clear: both;
+	padding: 10px 0;
+}
+.work h3{
+	text-align: center;
+}
+.work-head{
+	text-align: center;
+	font-size: 1.7em;
+}
+.work-body-left{
+	border-left: 3px solid #00b22d; 
+	padding: 20px 15px;
+	width: 75%;
+	box-shadow: 0 0 4px rgba(0,0,0,0.4);
+}
+.work-body-right{
+	border-right: 3px solid #00b22d;
+	padding: 20px 15px;
+	width: 75%;
+	box-shadow: 0 0 4px rgba(0,0,0,0.4);
+	float: right;
+}
+.work-body-content div img{
+	height: 120px;
+}
+.work-body-center{
+	text-align: center;
+}
+.work-body-center .work-body-content{
+	text-align: center;
+	left: 20%;
+	right: 20%;
+	padding: 20px 15px;
+	width: 60%;
+	box-shadow: 0 0 4px rgba(0,0,0,0.4);
+	border-bottom: 3px solid #00b22d;
+}
+.work .work-body-left h3{
+	text-align: center;
+}
 .profile{
 	margin: 0 auto;
 	left: 10%;
@@ -595,6 +678,7 @@ body{
 	float: left;
 	width: 30%;
 	margin: 0;
+	text-align: left;
 }
 .settings-content{
 	width: 70%;
@@ -610,23 +694,97 @@ body{
 
 .foot{
 	display: block;
-	float: left;
-	margin-top: 20px;
 	width: 100%;
+	position: relative;
+	bottom: 0;
+	height: 100px;
 }
 .foot-bag{
 	background-color: #fff;
 	padding: 20px 0;
 }
-@media screen and (max-width: 420px){
-	body{
-		width: 100%;
-	}
-	.title{
-		font-size: 100%;
+@media screen and (max-width: 1024px){
+	.head-text{
+		bottom: 60%;
 	}
 	.bar-right{
-		width: 40% !important;
+		width: 16%;
+	}
+	.title{
+		margin-right: 60%;
+	}
+}
+@media screen and (max-width: 768px){
+	.head-text{
+		bottom: 50%;
+	}
+	.bar-right{
+		width: 20%;
+	}
+	.title{
+		margin-right: 51%;
+	}
+	.sect{
+		display: none;
+	}
+	.profile{
+		left: 5%;
+	}
+}
+@media screen and (max-width: 642px){
+	.ride button{
+		display: block;
+		float: left;
+		text-align: center;
+		margin-left: 40%; 
+	}
+	.offer-details h3{
+		font-size: 100%;
+	}
+	.offer-details p{
+		font-size: 80%;
+		padding: 0 1%;
+	}
+	.offer-response{
+		width: 20%;
+		margin-right: 0;
+	}
+	.response{
+		padding: 7% 9% !important;
+	}
+}
+@media screen and (max-width: 425px){
+	.bar{
+		height: 60px;
+	}
+	.bar-right{
+		width: 40%;
+	}
+	.title{
+		margin-right: 25%;
+		font-size: 100%;
+	}
+	.head-text{
+		bottom: 30%;
+	}
+	.dashboard{
+		margin-top: 60px;
+	}
+	.horizon-box{
+		width: 97%;
+		float: none;
+	}
+	.horizon-box-h{
+		width: 97.6%;
+	}
+	.vertic-box{
+		width: 94%;
+		float: none;
+		margin-left: 2%;
+	}
+	.gig{
+		padding: 2% 0%;
+		width: 100%;
 	}
 	.btn-tap{
 		padding: 1.78% 1.8%;
@@ -639,6 +797,7 @@ body{
 	}
 	.offer{
 		width: 94.8%;
+		height: 100px;
 	}
 	.offer-details{
 		width: 70%;
@@ -657,10 +816,8 @@ body{
 	.response{
 		padding: 7% 9% !important;
 	}
-	.gig-profile-img{
-		margin-top: 50%;
-	}
 	.gig-profile-img img{
+		margin-top: 10%;
 		width: 30%;
 	}
 	.gig-profile-p p{
@@ -669,21 +826,19 @@ body{
 	.notify{
 		font-size: 70%;
 	}
-	.gig{
-		padding: 2% 0%;
-	}
+	
 	.ride{
 		padding: 2%;
 		width: 100%;
 	}
 	.ride p{
-		font-size: 80%;
+		font-size: 100%;
 	}
 	.ride button{
 		display: block;
-		float: left;
+		float: none;
 		text-align: center;
-		margin-left: 40%; 
+		margin-left: 70%; 
 	}
 	.profile{
 		left:0%;
@@ -704,40 +859,16 @@ body{
 	label{
 		font-size: 80%;
 	}
+	.unbox-content{
+		width: 80%;
+	}
 }
-@media screen and (max-width: 642px){
-	.ride button{
-		display: block;
-		float: left;
-		text-align: center;
-		margin-left: 40%; 
-	}
+@media screen and (max-width: 320px){
 	.bar-right{
-		width: 26%;
+		width: 44%;
 	}
-	.offer-details h3{
+	.title{
+		margin-right: 18%;
 		font-size: 100%;
 	}
-	.offer-details p{
-		font-size: 80%;
-		padding: 0 1%;
-	}
-	.offer-response{
-		width: 20%;
-		margin-right: 0;
-	}
-	.response{
-		padding: 7% 9% !important;
-	}
-}
-@media screen and (max-width: 754px){
-	.sect{
-		display: none;
-	}
-	.bar-right{
-		width: 22%;
-	}
-}
-@media screen and (max-width: 578px){
-
 }

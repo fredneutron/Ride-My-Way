@@ -5,23 +5,32 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/all.css">
 </head>
 <body>
 	<section class="head">
-		<div class="top bar white">
+		<div class="bar white">
 			<a class="bar-item title ds" href="#">Ride My Way</a>
 			<div class="bar-right">
-				<button class="bar-item btn btn-non ds msg">Messages</button>
-				<a  class="ds" id="dropdown-toggle">
-					<img src="images/mails.png">
-				</a>
+				<button class="bar-item btn btn-non ds" id="search"><i class="icon fa fa-search"></i></button>
+				<button class="bar-item btn btn-non ds" id="noti"><i class="icon fa fa-flag"><i class="fa fa-caret-down"></i></i></button>
+				<div class="notification" id = "notify">
+						<ul>
+							<p class="dropdown-item">Kole accepted your ride request</p>
+							<hr>
+							<p class="dropdown-item">Timi send a request to join ride offer</p>
+							<hr>
+							<p class="dropdown-item">chika rejected your ride request</p>
+						</ul>
+					</div>
+				<button class="bar-item btn btn-non ds" id="dropdown-toggle"><i class="icon fa fa-user" ><i class="fa fa-caret-down"></i></i></button>
 				<div class="dropdown" id="dropdown">
 					<ul>
 						<li class="dropdown-item">Babatunde Adelabu</li>
-						<li class="dropdown-item"><a href="passenger-dashboard.html">My Profile</a></li>
-						<li class="dropdown-item"><a href="profile.html">Settings</a></li>
+						<li class="dropdown-item"><a href="dashboard.html"><i class="p-icon fa fa-user-clock"></i>Dashboard</a></li>
+						<li class="dropdown-item"><a href="profile.html"><i class="p-icon fa fa-cog"></i> My Profile</a></li>
 						<hr>
-						<li class="dropdown-item"><a href="index.html">Logout</a></li>
+						<li class="dropdown-item"><i class="p-icon fa fa-sign-out-alt"></i>Logout</li>
 					</ul>
 				</div>
 			</div>
@@ -31,7 +40,7 @@
 	<section class="body">
 		<div class="dashboard">
 			<div class="dashboard-h">
-				<h1>Settings</h1>
+				<h1>My Profile</h1>
 			</div>
 			<hr>
 			<div class="dashboard-content">
@@ -39,8 +48,8 @@
 					<div class="settings">
 						<div class="settings-tab">
 							<ul>
-								<li id="acct" class="toggle-bar">Account</li>
-								<li id="secu" class="toggle-bar">Security</li>
+								<li id="acct" class="toggle-bar"><i class="fa fa-caret-right"> </i><span> Account</span></li>
+								<li id="secu" class="toggle-bar"><i class="fa fa-caret-right"> </i><span> Security</span></li>
 							</ul>
 						</div>
 						<div class="settings-content">
@@ -94,11 +103,26 @@
 			</div>
 		</div>
 	</section>
+	<div class="clearfix"></div>
 	<section class="foot">
 		<div class="foot-bag center">
 			<p><a href="">Privacy Policy</a> | <a href="">Terms of Service</a> | <a href=""> About </a> <br>© Ride My Way lnc. 2018</p>
 		</div>
 	</section>
+	<div id="search-box" class="unbox">
+		<!-- Unbox content -->
+		<div class="unbox-content">
+			<span class="close">&times;</span><br>
+			<div class="unbox-content-body">
+				<h2>RMW</h2>
+				<form action="dashboard.html" class="add-new">
+					<input type="text" class="form-new" id="location" placeholder="Location" required>
+					<input type="text" class="form-new" id="destination"  placeholder="Destination" required>
+					<button class="btn btn-tap" id="search-b">Search</button>
+				</form>
+			</div>
+		</div>
+	</div>
 	<script type="text/javascript" src="js/dropdown.js"></script>
 	<script type="text/javascript" src="js/profile.js"></script>
 </body>

@@ -8,7 +8,7 @@
 </head>
 <body>
 	<section class="head">
-		<div class="top bar">
+		<div class="bar">
 			<a class="bar-item title" href="#">Ride My Way</a>
 			<div class="bar-right">
 				<button class="bar-item btn btn-non" id="signin">Sign In</button>
@@ -19,87 +19,38 @@
 		<header class="">
 		  <img class="image" src="images/page1.jpg" alt="Hamburger Catering" width="100%" height="600">
 		  <div class="head-text">
-		    <h1 class="head-text-h">Get There Fast And Cheap</h1>
-		    <form method="post">
-		    	<input type="text" name="" id="search-box" placeholder="Search for available ride offer">
-		    	<button class="btn btn-tap" type="button" id="search">Search</button>
-		    </form>
+				<h1 class="head-text-h">Get There Fast And Cheap</h1>
+				<button class="btn btn-search" type="button" id="search">Search</button>
 		  </div>
 		</header>
 	</section>
 	<section class="body">
-		<div id="search-bar" class="search">
-			<h2 class="search-h">Search Result</h2>
-			<div class="search-result">
-				<div class="result">
-					<table>
-						<tr>
-							<td class="result-h"><img class="result-img" src="images/mails.png"></td>
-							<td class="result-content">
-								<h3>deserunt laborum</h3>
-								<p>Date: 24/06/2018</p>
-								<p>Time: 4:50pm</p>
-								<p>Location - Destination</p>
-							</td>
-							<td class="result-btn">
-								<button class="btn btn-tap">Accept</button>
-							</td>
-						</tr>
-					</table>
+		<div class="body-content">
+			<div class="work">
+				<h3 class="work-head">How it works</h3>
+				<div class="work-body-left">
+					<div class="work-body-content">
+						<p>As a user, you can add your next road trip on our platform for other interesting users to reach you, you can add the road trip details like a starting point, destination, the date of the road trip, the time, the seat available and the fees for each seat. After that, an interesting user will send you a request to ride with you, you get to accept or reject your road trip ride requests, On the road trip day, the interested users which you accept their requests will meet you at the starting point with their fees. That way you get to go on a road and still earn some cash apart from your wages.</p>
+					</div>
 				</div>
-				<div class="result">
-					<table>
-						<tr>
-							<td class="result-h"><img class="result-img" src="images/mails.png"></td>
-							<td class="result-content">
-								<h3>deserunt laborum</h3>
-								<p>Date: 24/06/2018</p>
-								<p>Time: 4:50pm</p>
-								<p>Location - Destination</p>
-							</td>
-							<td class="result-btn">
-								<button class="btn btn-tap">Accept</button>
-							</td>
-						</tr>
-					</table>
+				<div class="clear"></div>
+				<div class="work-body-right">
+					<div class="work-body-content">
+						<p>A a user, If you want to take a road trip, and you need a way to get there, all you have to do is search for your destination on our platform, for available ride offers from other users, if you see the one that you like you will send a request to the ride owner to tell him/her that you are interested in the ride offer, if he/she accepts your ride offer you meet the owner on the starting point at the date of the road trip with your fees</p>
+					</div>
 				</div>
-				<div class="result">
-					<table>
-						<tr>
-							<td class="result-h"><img class="result-img" src="images/mails.png"></td>
-							<td class="result-content">
-								<h3>deserunt laborum</h3>
-								<p>Date: 24/06/2018</p>
-								<p>Time: 4:50pm</p>
-								<p>Location - Destination</p>
-							</td>
-							<td class="result-btn">
-								<button class="btn btn-tap">Accept</button>
-							</td>
-						</tr>
-					</table>
-				</div>
-				<button class="btn btn-tap" type="button">Load More</button>
+				<div class="clear"></div>
+				<h3>Description</h3>
+				<div class="work-body-center">
+						<div class="work-body-content">
+							<div>
+								<img src="images/mails.png">
+							</div>
+							<p>Ride My Way is a carpooling service available for all, you get to earn extra cash on every road trip you make.</p>
+						</div>
+					</div>
 			</div>
 		</div>
-		<div class="body-plate center">
-			<h2 class="body-plate-h">Avaliable Ride Offer</h2>
-			<p>All around the world</p>
-		</div>
-		<div class="body-dish">
-			<ul>
-				<li>Europe</li>
-				<li>Africa</li>
-				<li>Asia</li>
-				<li>North America</li>
-				<li>South America</li>
-				<li>Australia</li>
-				<li>Antarctica</li>
-			</ul>
-		</div>
-		<header class="body-map">
-			<img src="images/world-map.png" width="100%">
-		</header>
 	</section>
 	<section class="foot">
 		<div class="foot-bag center">
@@ -127,19 +78,16 @@
 	    </div>
 	  </div>
 	</div>
-	<div id="switch" class="unbox">
+	<div id="search-box" class="unbox">
   		<!-- Unbox content -->
 	  <div class="unbox-content">
 	    <span class="close">&times;</span><br>
 	    <div class="unbox-content-body">
 	    	<h2>RMW</h2>
-	    	<form action="passenger-dashboard.html" class="add-new">
-	    		<p class="headup">You are</p>
-	    		<p>a</p>
-	    		<br>
-	    		<button class="btn btn-tap" id="drive" type="button">Driver</button>Or
-	    		<hr>
-	    		<button class="btn btn-tap" type="button" onclick="redirect('passenger-dashboard.html');">Passenger</button>
+	    	<form action="dashboard.html" class="add-new">
+	    		<input type="text" class="form-new" id="location" placeholder="Location" required>
+	    		<input type="text" class="form-new" id="destination"  placeholder="Destination" required>
+	    		<button class="btn btn-tap" id="search-b">Search</button>
 	    	</form>
 	    </div>
 	  </div>
@@ -177,12 +125,11 @@
 	    <div class="unbox-content-body">
 	    	<h2>RMW</h2>
 	    	<form action="dashboard.html" class="add-new">
-	    		<p>please upload of picture of your driver's license.</p>
-	    		<label>Driver License :</label>l
-	    		<input type="file" class="form-new" name="" required="">
-	    		<label>Vehicle Registration Number :</label>
-	    		<input type="text" class="form-new" name="" placeholder="Vehicle Registration Number :" required="">
-	    		<button class="btn btn-tap" onclick="redirect('dashboard.html');" type="button">Continue</button>
+					<input type="text" class="form-new" name="" required placeholder="Vehicle Type">
+					<input type="text" class="form-new" name="" required placeholder="Vehicle Model">
+					<input type="text" class="form-new" name="" required placeholder="Driver's License Number">
+	    		<input type="text" class="form-new" name="" placeholder="Vehicle Registration Number" required>
+	    		<button class="btn btn-tap" id="submit" type="button">Continue</button>
 	    	</form>
 	    </div>
 	    <div id="test"></div>
