@@ -3,13 +3,8 @@ import user from '../model/user';
 
 
 export default class User {
-  static homepage(req, res) {
-    return res.status(200).json({
-      message: 'Welcome',
-    });
-  }
   static getAllUsers(req, res) {
-    return user.getAllUser(req.params.id, res);
+    return user.getAllUser(res);
   }
   static getUser(req, res) {
     if (typeof req.params.id !== 'undefined') {
@@ -19,15 +14,15 @@ export default class User {
       error: 'id[number] is required',
     });
   }
-  static addNewUser(req, res) {
+  static signUp(req, res) {
     if (helper.checkUser(req) === true) {
-      return user.addNewUser(req.body, res);
+      return user.signUp(req.body, res);
     }
     return res.status(400).json(helper.checkUser(req));
   }
-  static authUser(req, res) {
+  static logIn(req, res) {
     if (req.body.email !== '' && req.body.password !== '') {
-      return user.login(req, res);
+      return user.logIn(req, res);
     }
     return res.status(400).json({
       error: 'email/Password can not be empty',
@@ -41,10 +36,7 @@ export default class User {
     //   .then(() => DB.end());
   }
   static deleteUser(req, res) {
-    console.log(req.params.id);
-    if (typeof req.params.id !== 'undefined') {
-      return user.delete(req, res);
-    }
+    if (helper.emptyChecker(req.params.id)) return user.delete(req, res);
     return res.status(400).json({
       error: 'id[number] is required',
     });

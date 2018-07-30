@@ -1,11 +1,13 @@
 import express from 'express';
 import Middleware from './Middleware/index';
+import helper from './controllers/helper';
 
 const app = express();
-
 //  connecting Middleware
-Middleware(app);
+Middleware.connect(app);
+// configuring environmental variables
+helper.config();
 //  add listen port for server
-app.listen(process.env.PORT || 2000);
+app.listen(process.env.PORT || 3000);
 
 export default app;

@@ -4,14 +4,15 @@ import app from '../../index';
 import ride from '../../route/ride';
 
 const expect = chai.expect;
+const assert = chai.assert;
 
 describe('get all rides', () => {
   it('should return all rides', (done) => {
-    request(app.use(ride)).get('/rides')
-      .set('Accept', 'application/json').expect(200)
+    request(app.use(ride))
+      .get('/rides')
       .end((err, res) => {
         expect(res.status).to.equal(200);
-        expect(res.body).to.not.undefined;
+        assert.typeOf(res.body, 'array');
         done();
       });
   });

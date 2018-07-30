@@ -1,17 +1,18 @@
 import request from 'supertest';
+import chai from 'chai';
 import app from '../../index';
-import user from '../../route/user';
+import ride from '../../route/ride';
 
-
-describe('get all users', () => {
-  it('should return all users', (done) => {
-    request(app.use(user)).get('/users')
-      .set('Accept', 'application/json').expect(200)
-      .end((err) => {
-        if (err) return done(err);
+const expect = chai.expect;
+const assert = chai.assert;
+describe('get all user', () => {
+  it('should return a json of all users', (done) => {
+    request(app.use(ride))
+      .get('/users')
+      .end((err, res) => {
+        expect(res.status).to.equal(401);
+        assert.typeOf(res.body, 'object');
         done();
       });
   });
 });
-
-
