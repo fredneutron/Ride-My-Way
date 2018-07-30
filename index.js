@@ -8,6 +8,6 @@ Middleware.connect(app);
 // configuring environmental variables
 helper.config();
 //  add listen port for server
-app.listen(process.env.PORT || 3000);
+app.listen(process.env.PORT);
 
 export default app;
