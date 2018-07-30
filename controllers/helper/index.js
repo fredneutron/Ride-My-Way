@@ -72,6 +72,6 @@ export default class helper {
     // setting Jwt secret key
     process.env.JWT_KEY = 'Coolyet';
     // setting port
-    process.env.PORT = 3000;
+//     process.env.PORT = 3000;
   }
 }
