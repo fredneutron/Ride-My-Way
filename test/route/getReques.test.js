@@ -5,11 +5,9 @@ import user from '../../route/user';
 
 const expect = chai.expect;
 
-describe('add a ride request', () => {
-  it('should add a new ride request', (done) => {
-    request(app.use(user)).post('/rides/1/request', (req) => {
-      req.body = { passenger_id: 5 };
-    })
+describe('get all ride request for a ride offer', () => {
+  it('should return all ride request', (done) => {
+    request(app.use(user)).get('/users/rides/5/request')
       .set('Accept', 'application/json').expect(200)
       .end((err, res) => {
         expect(res.body).to.not.undefined;

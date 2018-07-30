@@ -6,7 +6,7 @@ const validate = (req, res, next) => {
     res.auth = jwt.verify(token, process.env.JWT_KEY);
     next();
   } catch (error) {
-    return res.status(200).json({
+    return res.status(401).json({
       message: 'Auth failed',
     });
   }

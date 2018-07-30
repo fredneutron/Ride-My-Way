@@ -15,6 +15,7 @@ const pool = new Pool({
   user: 'vymumfzhkfuoqv',
   password: '01aedc4d06f6260a361155fa3f9e4beff0032ecef2a2c8361d856ca821a96ab5',
   database: 'dajhc458kpo4oh',
+  ssl: true,
 });
 
 export default pool;
