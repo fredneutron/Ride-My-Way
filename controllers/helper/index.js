@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
 
-dotenv.config();
+// dotenv.config();
 export default class helper {
   static checkRequest(req) {
     const data = [req.params.rideId, req.body.passenger_id];
@@ -71,7 +71,5 @@ export default class helper {
   static config() {
     // setting Jwt secret key
     process.env.JWT_KEY = 'Coolyet';
-    // setting port
-//     process.env.PORT = 3000;
   }
 }
