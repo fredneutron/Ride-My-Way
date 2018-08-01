@@ -31,13 +31,14 @@
     "body-parser": "^1.18.3",
     "chai-http": "^4.0.0",
     "cross-env": "^5.2.0",
+    "dotenv": "^6.0.0",
     "express": "^4.16.3",
     "jsonwebtoken": "^8.3.0",
     "morgan": "^1.9.0",
     "pg": "^7.4.3"
   },
   "engines": {
-    "node": "4.7.0",
-    "npm": "5.5.1"
+    "node": "^4.7.0",
+    "npm": "^5.5.1"
   }
 }
