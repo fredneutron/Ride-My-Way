@@ -5,10 +5,12 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint ./lib/index.js",
-    "start": "babel-node ./lib/index.js --presets env",
-    "build": "babel lib -d dist --presets env",
-    "serve": "node dist/index.js",
-    "test": "mocha ./lib/test/ --recursive --compilers js:babel-register --exit"
+    "postinstall": "npm run build",
+    "start": "node dist/index.js",
+    "dev": "npm run clean && babel-node ./lib/index.js --presets env",
+    "test": "mocha ./lib/test/ --recursive --compilers js:babel-register --exit",
+    "build": "npm run clean && babel lib -d dist --presets env",
+    "clean": "rm -rf dist"
   },
   "keywords": [ "carpooling", "api", ""],
   "author": "Babatunde Adelabu",
