@@ -1,7 +1,7 @@
 {
   "name": "Ride-My-Way",
   "version": "1.0.0",
-  "description": "Ride-my-Way App is a carpooling application that provides users with the ability to create ride offers and join available ride offers.",
+  "description": "Ride-my-Way API is a carpooling service API built to provides users with the ability to create ride offers and join available ride offers.",
   "main": "index.js",
   "scripts": {
     "lint": "eslint ./lib/index.js",
@@ -12,7 +12,7 @@
     "build": "npm run clean && babel lib -d dist --presets env",
     "clean": "rm -rf dist"
   },
-  "keywords": [ "carpooling", "api", ""],
+  "keywords": [ "carpooling", "api", "ride", "ride-my-way", "my way", "ride my way"],
   "author": "Babatunde Adelabu",
   "license": "ISC",
   "devDependencies": {
@@ -33,9 +33,6 @@
   "dependencies": {
     "bcrypt": "^2.0.1",
     "body-parser": "^1.18.3",
-    "chai-http": "^4.0.0",
-    "cross-env": "^5.2.0",
-    "dotenv": "^6.0.0",
     "express": "^4.16.3",
     "jsonwebtoken": "^8.3.0",
     "morgan": "^1.9.0",
