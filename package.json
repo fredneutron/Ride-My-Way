@@ -12,7 +12,14 @@
     "build": "npm run clean && babel lib -d dist --presets env",
     "clean": "rm -rf dist"
   },
-  "keywords": [ "carpooling", "api", "ride", "ride-my-way", "my way", "ride my way"],
+  "keywords": [
+    "carpooling",
+    "api",
+    "ride",
+    "ride-my-way",
+    "my way",
+    "ride my way"
+  ],
   "author": "Babatunde Adelabu",
   "license": "ISC",
   "devDependencies": {
@@ -31,6 +38,7 @@
     "supertest": "^3.1.0"
   },
   "dependencies": {
+    "aglio": "^2.3.0",
     "bcrypt": "^2.0.1",
     "body-parser": "^1.18.3",
     "express": "^4.16.3",
