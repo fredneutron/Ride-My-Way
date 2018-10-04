@@ -5,6 +5,7 @@ let search = get('#search-bar');
 let drive = get('#drive-info');
 let searchBox = get('#search-box');
 let x;
+let pas;
 get('#signin1').onclick = () =>{
 	signup.style.display = "none";
 	signin.style.display = "block";
@@ -30,12 +31,15 @@ get('#signup').onclick = () =>{
 get('#pass').onchange = () =>{
 	let pass = get('#pass').value;
 	let n = validation(pass);
+	pas = pass;
 	x = (n >= 75)? true : false;
 }
 get('#continue').onclick = () =>{
-	if(x){
+	if(x & pas == get('#confirm').value){
 		signup.style.display = "none";
 		drive.style.display = "block";
+	}else{
+		get('#error1').innerHTML = "<span class='danger'>Please enter the correct password to confirm<span>";
 	}
 }
 window.onclick = e => {
@@ -50,7 +54,7 @@ window.onclick = e => {
 	}
 }
 let validation = (word) =>{
-	if(word.length >= 6 & word.length <= 12){
+	if(word.length >= 8){
 		let n = 0;
 		n = word.match(/[A-Z]/g)? n+=25 : n+=0;
 		n = word.match(/[a-z]/g)? n+=25 : n+=0;
@@ -68,10 +72,8 @@ let validation = (word) =>{
 			get('#error').innerHTML = "password is strong!"
 		}
 		return n;
-	}else if(word.length < 6){
-		get('#error').innerHTML = "Minimum password length is 6";
-	}else{
-		get('#error').innerHTML = "Maximum password length is 12";
+	}else if(word.length < 8){
+		get('#error').innerHTML = "Minimum password length is 8";
 	}
 }
 
@@ -89,3 +91,55 @@ let closeModel = () => {
 	}
 }
 closeModel();
+
+get('#submit').onclick = (e) => {
+	e.preventDefault();
+	let name = get('input[name="first"]').value+" "+get('input[name="last"]').value;
+	let email = get('input[name="email"]').value;
+	let gender = get('input[name="gender"]:checked').value;
+	let dob = get('input[name="date"]').value;
+	let pass = pas;
+	let vechicleType = get('input[name="vectype"]').value;
+	let vechicleModel = get('input[name="vecmodel"]').value;
+	let driverLicense = get('input[name="drlic"]').value;
+	let vrn = get('input[name="vrn"]').value;
+	let id;
+
+	fetch('/api/v1/auth/signup', {
+		method: 'POST',
+		headers: {
+			'content-type': 'application/json'
+		},
+		body:JSON.stringify({
+			"name": name,
+			"email": email,
+			"gender": gender,
+			"dob": dob,
+			"picture": "/images/Koala.jpg",
+			"password": pass
+		})
+	})
+	.then(res => res.json())
+	.then(data => {
+		id = data.key;
+		fetch('/api/v1/drivers', {
+			method: 'POST',
+			redirect: 'error',
+			headers: {
+				'user-agent': 'Mozilla/4.0 MDN Example',
+				'content-type': 'application/json'
+			},
+			body:JSON.stringify({
+				"user_id": id,
+				"vechicle_type": vechicleType,
+				"vechicle_model": vechicleModel,
+				"driver_license": driverLicense,
+				"VRN": vrn
+			})
+		}).then(re => re.json())
+		.then(res => console.log(res))
+		.catch(err => console.log(err));
+		localStorage.setItem("key", id);
+		window.location.href = "dashboard.html";
+	}).catch(err => console.log(err));
+}

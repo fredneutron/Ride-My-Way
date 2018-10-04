@@ -703,6 +703,9 @@ body{
 	background-color: #fff;
 	padding: 20px 0;
 }
+.icon{
+	display: none;
+}
 @media screen and (max-width: 1024px){
 	.head-text{
 		bottom: 60%;

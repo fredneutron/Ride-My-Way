@@ -99,15 +99,16 @@
 	    <div class="unbox-content-body">
 	    	<h2>RMW</h2>
 	    	<form class="add-new">
-	    		<input type="text" class="form-new" name="" placeholder="First Name" required="">
-	    		<input type="text" class="form-new" name="" placeholder="Last Name" required="">
-	    		<input type="email" class="form-new" name="" placeholder="Email Address" required="">
+	    		<input type="text" class="form-new" name="first" placeholder="First Name" required="">
+	    		<input type="text" class="form-new" name="last" placeholder="Last Name" required="">
+	    		<input type="email" class="form-new" name="email" placeholder="Email Address" required="">
 	    		<input type="radio"  name="gender" value="Male" required="">Male
 	    		<input type="radio"  name="gender" value="Female" required="">Female
-	    		<input type="date" class="form-new" name="" required="">
+	    		<input type="date" class="form-new" name="dob" required="" max="new Date()">
 	    		<input type="password" class="form-new" id="pass"  placeholder="Password" required="">
 	    		<p id="error"></p>
-	    		<input type="password" class="form-new" id="confirm"  placeholder="Confirm Password" required="">
+					<input type="password" class="form-new" id="confirm"  placeholder="Confirm Password" required="">
+					<p id="error1"></p>
 	    		<button class="btn btn-tap" type="button" id="continue">Sign Up</button><br>
 	    		<span>By joining I agree to receive emails from Ride My Way.</span>
 	    	</form>
@@ -125,10 +126,10 @@
 	    <div class="unbox-content-body">
 	    	<h2>RMW</h2>
 	    	<form action="dashboard.html" class="add-new">
-					<input type="text" class="form-new" name="" required placeholder="Vehicle Type">
-					<input type="text" class="form-new" name="" required placeholder="Vehicle Model">
-					<input type="text" class="form-new" name="" required placeholder="Driver's License Number">
-	    		<input type="text" class="form-new" name="" placeholder="Vehicle Registration Number" required>
+					<input type="text" class="form-new" name="vectype" required placeholder="Vehicle Type">
+					<input type="text" class="form-new" name="vecmodel" required placeholder="Vehicle Model">
+					<input type="text" class="form-new" name="drlic" required placeholder="Driver's License Number">
+	    		<input type="text" class="form-new" name="vrn" placeholder="Vehicle Registration Number" required>
 	    		<button class="btn btn-tap" id="submit" type="button">Continue</button>
 	    	</form>
 	    </div>
