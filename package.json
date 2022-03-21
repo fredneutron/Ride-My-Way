@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "eslint ./lib/index.js",
     "postinstall": "npm run build",
-    "start": "node dist/index.js",
+    "start": "babel-node dist/index.js",
     "dev": "npm run clean && babel-node ./lib/index.js --presets env",
     "test": "mocha ./lib/test/ --recursive --compilers js:babel-register --exit",
     "build": "npm run clean && babel lib -d dist --presets env",
@@ -39,6 +39,7 @@
     "supertest": "^3.1.0"
   },
   "dependencies": {
+    "babel-cli": "^6.26.0",
     "aglio": "^2.3.0",
     "bcrypt": "^2.0.1",
     "body-parser": "^1.18.3",
