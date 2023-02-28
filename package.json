@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint ./lib/index.js",
-    "postinstall": "npm run build",
+    "postinsta": "npm run build",
     "start": "babel-node dist/index.js",
     "dev": "npm run clean && babel-node ./lib/index.js --presets env",
     "test": "mocha ./lib/test/ --recursive --compilers js:babel-register --exit",
