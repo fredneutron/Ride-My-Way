@@ -6,10 +6,10 @@
   "scripts": {
     "lint": "eslint ./lib/index.js",
     "postinsta": "npm run build",
-    "start": "babel-node dist/index.js",
-    "dev": "npm run clean && babel-node ./lib/index.js --presets env",
+    "start": "npx babel-node dist/index.js",
+    "dev": "npm run clean && npx babel-node ./lib/index.js",
     "test": "mocha ./lib/test/ --recursive --compilers js:babel-register --exit",
-    "build": "npm run clean && npx babel lib -d dist --presets env --omit=dev",
+    "build": "npm run clean && npx babel lib -d dist --presets=@babel/preset-env",
     "clean": "rm -rf dist"
   },
   "keywords": [
@@ -23,12 +23,11 @@
   "author": "Babatunde Adelabu",
   "license": "ISC",
   "devDependencies": {
+    "@babel/cli": "^7.21.0",
     "@babel/core": "^7.8.7",
+    "@babel/node": "^7.20.7",
     "@babel/preset-env": "^7.8.7",
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.3",
-    "babel-preset-env": "^1.7.0",
-    "babel-register": "^6.26.0",
+    "@babel/register": "^7.21.0",
     "chai": "^4.1.2",
     "dotenv": "^6.2.0",
     "eslint": "^4.19.1",
@@ -44,8 +43,6 @@
     "@babel/core": "^7.8.7",
     "@babel/preset-env": "^7.8.7",
     "aglio": "^2.3.0",
-    "babel-core": "^6.26.3",
-    "babel-preset-env": "^1.7.0",
     "bcrypt": "^5.0.1",
     "body-parser": "^1.18.3",
     "express": "^4.16.3",
