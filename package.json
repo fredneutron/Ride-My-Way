@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint ./lib/index.js",
-    "postinsta": "npm run build",
+    "postinstall": "npm run build",
     "start": "npx babel-node dist/index.js",
     "dev": "npm run clean && npx babel-node ./lib/index.js",
     "test": "mocha ./lib/test/ --recursive --compilers js:babel-register --exit",
@@ -40,6 +40,7 @@
     "supertest": "^3.1.0"
   },
   "dependencies": {
+    "@babel/cli": "^7.21.0",
     "@babel/core": "^7.8.7",
     "@babel/preset-env": "^7.8.7",
     "aglio": "^2.3.0",
